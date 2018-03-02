@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/InventoryAppFX/InventoryAppFX.iml" filepath="$PROJECT_DIR$/InventoryAppFX/InventoryAppFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OrderAppFX/OrderAppFX.iml" filepath="$PROJECT_DIR$/OrderAppFX/OrderAppFX.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ShippingAppFX/ShippingAppFX.iml" filepath="$PROJECT_DIR$/ShippingAppFX/ShippingAppFX.iml" />
+    </modules>
+  </component>
+</project>

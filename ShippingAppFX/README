@@ -1,0 +1,39 @@
+/*
+ * Copyright 2017 (C) <University of Coimbra>
+ * 
+ * Created on : 15-02-2017
+ * Author     : Bruno Cabral 
+ */
+
+
+ShippingAppFX is an order management application created for the
+Software Architecture course at the University of Coimbra. ShippingAppFX is
+part of an application suite used to setup a fictional scenario for
+a student assignment.
+
+
+
+To run ShippingAppFX, execute the following steps:
+0 - Before continuing, first install OrderAppFX. Without the database this application will not work.
+
+1 - Open a terminal/cmd at the root of the ShippingAppFX directory
+
+2 - Compile the source code and generate the Jar file
+
+mvn clean jfx:jar
+
+
+3 - Execute the app
+
+java -jar target/jfx/app/ShippingAppFX-0.0.1-jfx.jar
+
+If the database is not running on the local host, try the following alternatives:
+
+java -jar /jfx/app/ShippingAppFX-0.0.1-jfx.jar <db_server_IP> 
+or
+java -jar /jfx/app/ShippingAppFX-0.0.1-jfx.jar <driver> <url> <username> <password> 
+
+
+
+
+
