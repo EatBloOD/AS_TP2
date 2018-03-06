@@ -6,7 +6,13 @@
         <option value="$PROJECT_DIR$/InventoryAppFX/pom.xml" />
         <option value="$PROJECT_DIR$/OrderAppFX/pom.xml" />
         <option value="$PROJECT_DIR$/ShippingAppFX/pom.xml" />
+        <option value="$PROJECT_DIR$/EPELogger/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/TestModule/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="1.8" project-jdk-type="JavaSDK">
