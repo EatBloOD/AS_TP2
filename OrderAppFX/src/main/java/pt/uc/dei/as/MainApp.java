@@ -12,15 +12,16 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import pt.uc.dei.as.controller.LoginController;
 import pt.uc.dei.as.controller.OrderEditorController;
 import pt.uc.dei.as.controller.OrderOverviewController;
+import pt.uc.dei.as.entity.Employer;
 import pt.uc.dei.as.entity.Order;
 
 import java.io.IOException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.TypedQuery;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -33,6 +34,9 @@ import javafx.scene.layout.BorderPane;
  * The Class MainApp.
  */
 public class MainApp extends Application {
+
+	/** Current employee working*/
+	private static Employer employer;
 
 	/** The primary stage. */
 	private Stage primaryStage;
@@ -56,6 +60,14 @@ public class MainApp extends Application {
 	 */
 	public MainApp() throws Exception {
 
+	}
+
+	public void setEmployer(Employer employer) {
+		this.employer = employer;
+	}
+
+	public static Employer getEmployer() {
+		return employer;
 	}
 
 	/**
@@ -86,16 +98,24 @@ public class MainApp extends Application {
 		this.primaryStage.getIcons().add(new Image("/images/sprout.png"));
 		Platform.setImplicitExit(true);
 
-		try {
+		/*try {
 			TypedQuery<Order> query = MainApp.em.createNamedQuery("Order.findAll", Order.class);
 			ordersData.setAll(query.getResultList());
 		} catch (Exception e) {
 			AlertUtil.alert("Could not complete the operation", "Something is wrong!", "Try again or restart the application");
 			MainApp.refreshEm();
-		}
+		}*/
 
-		initRootLayout();
-		showOrderOverview();
+
+		/*MainApp.em.getTransaction().begin();
+        MainApp.em.persist(new Employer("ola", "12@34", "locX", "91"));
+        MainApp.em.getTransaction().commit();*/
+
+		//initRootLayout();
+		initLoginLayout();
+		//showOrderOverview();
+		showLogginOverview();
+
 	}
 
 	/* (non-Javadoc)
@@ -110,7 +130,8 @@ public class MainApp extends Application {
 
 	/**
 	 * Inits the root layout.
-	 */
+	/* */
+
 	public void initRootLayout() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -126,10 +147,25 @@ public class MainApp extends Application {
 		}
 	}
 
+	public void initLoginLayout() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("/fxml/RootLogin.fxml"));
+			rootLayout = (BorderPane) loader.load();
+			rootLayout.getStylesheets().add("/stylesheets/DarkTheme.css");
+
+			Scene scene = new Scene(rootLayout);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 	/**
 	 * Show order overview.
 	 */
-	public void showOrderOverview() {
+	/*public void showOrderOverview() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("/fxml/OrderOverview.fxml"));
@@ -143,7 +179,41 @@ public class MainApp extends Application {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}*/
+
+	public void showOrderOverview() {
+		try {
+			initRootLayout();
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("/fxml/OrderOverview.fxml"));
+			AnchorPane orderOverview = (AnchorPane) loader.load();
+			orderOverview.getStylesheets().add("/stylesheets/DarkTheme.css");
+
+			rootLayout.setCenter(orderOverview);
+			OrderOverviewController controller = loader.getController();
+			controller.setMainApp(this);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
+
+	public void showLogginOverview() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(MainApp.class.getResource("/fxml/Login.fxml"));
+			AnchorPane orderOverview = (AnchorPane) loader.load();
+			orderOverview.getStylesheets().add("/stylesheets/DarkTheme.css");
+
+			rootLayout.setCenter(orderOverview);
+			LoginController controller = loader.getController();
+			controller.setMainApp(this);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
 
 	/**
 	 * Show order editor dialog.

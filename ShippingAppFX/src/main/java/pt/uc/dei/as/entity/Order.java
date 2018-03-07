@@ -51,6 +51,11 @@ public class Order implements Serializable {
 	@JoinColumn(name = "Clients_idClients", nullable = false)
 	private Client client;
 
+	// bi-directional many-to-one association to Client
+	@ManyToOne
+	@JoinColumn(name = "Employers_idEmployers", nullable = false)
+	private Employer employe;
+
 	public Order() {
 	}
 
@@ -130,6 +135,19 @@ public class Order implements Serializable {
 
 	public void setClient(Client client) {
 		this.client = client;
+	}
+
+
+	public static long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+
+	public Employer getEmploye() {
+		return employe;
+	}
+
+	public void setEmploye(Employer employe) {
+		this.employe = employe;
 	}
 
 }

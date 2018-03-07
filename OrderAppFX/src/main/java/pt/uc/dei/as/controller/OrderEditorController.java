@@ -410,6 +410,7 @@ public class OrderEditorController {
 					c.setClients_Address(this.addressArea.getText());
 					c.setClients_Email(this.emailField.getText());
 					c.setClients_Telephone(this.telephoneField.getText());
+					order.setEmploye(MainApp.getEmployer());
 					order.setClient(c);
 				} catch (NoResultException nre) {
 					if (order.getClient() == null && this.client == null)
@@ -420,6 +421,7 @@ public class OrderEditorController {
 					this.client.setClients_Email(this.emailField.getText());
 					this.client.setClients_Name(this.nameField.getText());
 					this.client.setClients_Telephone(this.telephoneField.getText());
+					order.setEmploye(MainApp.getEmployer());
 					order.setClient(this.client);
 				}
 			} catch (Exception e) {
@@ -439,7 +441,7 @@ public class OrderEditorController {
 						newItems.add(i);
 			for (Item i:newItems)
 				order.addItem(i);
-			
+
 			saveClicked = true;
 			dialogStage.close();
 		}
