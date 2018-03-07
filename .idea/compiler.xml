@@ -12,9 +12,13 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="EPELogger" target="1.8" />
       <module name="InventoryAppFX" target="1.8" />
+      <module name="Logger" target="1.8" />
       <module name="OrderAppFX" target="1.8" />
+      <module name="OrderAppFX1234" target="1.8" />
       <module name="ShippingAppFX" target="1.8" />
+      <module name="TestModule" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

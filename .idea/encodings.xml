@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/EPELogger" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/InventoryAppFX" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/OrderAppFX" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ShippingAppFX" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/TestModule" charset="UTF-8" />
   </component>
 </project>
