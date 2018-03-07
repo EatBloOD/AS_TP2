@@ -27,12 +27,15 @@ DROP TABLE IF EXISTS `Orders`;
 CREATE TABLE `Orders` (
   `idOrders` int(11) NOT NULL AUTO_INCREMENT,
   `Clients_idClients` int(11) NOT NULL,
+  `Employers_idEmployers` int(11) NOT NULL,
   `Orders_Date` date NOT NULL,
   `Orders_Shipped` tinyint(4) NOT NULL DEFAULT '0',
   `Orders_Total_Cost` decimal(15,0) NOT NULL DEFAULT '0',
   PRIMARY KEY (`idOrders`),
   KEY `fk_Orders_Clients1_idx` (`Clients_idClients`),
-  CONSTRAINT `fk_Orders_Clients1` FOREIGN KEY (`Clients_idClients`) REFERENCES `Clients` (`idClients`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `fk_Orders_Employers2_idx` (`Employers_idEmployers`),
+  CONSTRAINT `fk_Orders_Clients1` FOREIGN KEY (`Clients_idClients`) REFERENCES `Clients` (`idClients`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Orders_Employers2` FOREIGN KEY (`Employers_idEmployers`) REFERENCES `Employers` (`idEmployers`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

@@ -2,8 +2,9 @@
  * Copyright 2017 (C) <University of Coimbra>
  * 
  * Created on : 15-02-2017
- * Author     : Bruno Cabral 
+ * Author     : Bruno Cabral
  */
+
 package pt.uc.dei.as.controller;
 
 
@@ -21,75 +22,108 @@ import pt.uc.dei.as.MainApp;
 import pt.uc.dei.as.entity.*;
 
 // TODO: Auto-generated Javadoc
+
 /**
  * The Class OrderOverviewController.
  */
+
 public class OrderOverviewController {
 	
-	/** The order table. */
+
+/** The order table. */
+
 	@FXML
 	private TableView<Order> orderTable;
 
-	/** The name column. */
+
+/** The name column. */
+
 	@FXML
 	private TableColumn<Order, String> nameColumn;
 	
-	/** The date column. */
+
+/** The date column. */
+
 	@FXML
 	private TableColumn<Order, String> dateColumn;
 	
-	/** The shipped column. */
+
+/** The shipped column. */
+
 	@FXML
 	private TableColumn<Order, String> shippedColumn;
 
-	/** The items table. */
+
+/** The items table. */
+
 	@FXML
 	private TableView<Item> itemsTable;
 
-	/** The description column. */
+
+/** The description column. */
+
 	@FXML
 	private TableColumn<Item, String> descriptionColumn;
 	
-	/** The quantity column. */
+
+/** The quantity column. */
+
 	@FXML
 	private TableColumn<Item, String> quantityColumn;
 	
-	/** The price column. */
+
+/** The price column. */
+
 	@FXML
 	private TableColumn<Item, String> priceColumn;
 
-	/** The order total label. */
+
+/** The order total label. */
+
 	@FXML
 	private Label orderTotalLabel;
 	
-	/** The telephone label. */
+
+/** The telephone label. */
+
 	@FXML
 	private Label telephoneLabel;
 	
-	/** The address label. */
+
+/** The address label. */
+
 	@FXML
 	private Label addressLabel;
 	
-	/** The email label. */
+
+/** The email label. */
+
 	@FXML
 	private Label emailLabel;
 
-	/** The main app. */
+
+/** The main app. */
+
 	private MainApp mainApp;
 
-	/** The items data. */
+
+/** The items data. */
+
 	private ObservableList<Item> itemsData = FXCollections.observableArrayList();
 
-	/**
+
+/**
 	 * Instantiates a new order overview controller.
 	 */
+
 	public OrderOverviewController() {
 
 	}
 
-	/**
+/**
 	 * Initialize.
 	 */
+
 	@FXML
 	private void initialize() {
 		nameColumn.setCellValueFactory(cellData -> cellData.getValue().getClient().clients_NameProperty());
@@ -108,22 +142,26 @@ public class OrderOverviewController {
 
 	}
 
-	/**
+
+/**
 	 * Sets the main app.
 	 *
 	 * @param mainApp the new main app
 	 */
+
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 
 		orderTable.setItems(mainApp.getOrdersData());
 	}
 
-	/**
+
+/**
 	 * Show order details.
 	 *
 	 * @param order the order
 	 */
+
 	private void showOrderDetails(Order order) {
 		if (order != null) {
 			orderTotalLabel.setText(order.getOrders_Total_Cost().toString());
@@ -147,9 +185,11 @@ public class OrderOverviewController {
 
 
 
-	/**
+
+/**
 	 * Handle toggle shipped.
 	 */
+
 	@FXML
 	private void handleToggleShipped() {
 		if (orderTable.getItems() != null && orderTable.getItems().size() > 0
@@ -176,9 +216,11 @@ public class OrderOverviewController {
 
 
 
-	/**
+
+/**
 	 * Handle refresh.
 	 */
+
 	@FXML
 	private void handleRefresh() {
 		try {
@@ -195,3 +237,4 @@ public class OrderOverviewController {
 	}
 
 }
+

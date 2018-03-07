@@ -6,6 +6,7 @@
 		<class>pt.uc.dei.as.entity.Client</class>
 		<class>pt.uc.dei.as.entity.Item</class>
 		<class>pt.uc.dei.as.entity.ItemPK</class>
+		<class>pt.uc.dei.as.entity.Employer</class>
 		<class>pt.uc.dei.as.entity.Order</class>
 		<class>pt.uc.dei.as.entity.Product_Type</class>
 		<class>pt.uc.dei.as.entity.Product</class>

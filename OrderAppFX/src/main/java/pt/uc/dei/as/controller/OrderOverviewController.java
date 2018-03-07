@@ -180,6 +180,10 @@ public class OrderOverviewController {
 		for (Item i : newOrder.getItems()) {
 			i.getId().setOrders_idOrders(newOrder.getIdOrders());
 		}
+
+		newOrder.setEmploye(MainApp.getEmployer());
+
+
 		if (saveClicked) {
 
 			try {
