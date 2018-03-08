@@ -54,13 +54,6 @@
             <artifactId>controlsfx</artifactId>
             <version>8.40.12</version>
         </dependency>
-
-        <!-- Logger module dependency -->
-        <dependency>
-            <groupId>EPELogger</groupId>
-            <artifactId>EPELogger</artifactId>
-            <version>0.0.1</version>
-        </dependency>
     </dependencies>
     <build>
         <sourceDirectory>src/main/java</sourceDirectory>

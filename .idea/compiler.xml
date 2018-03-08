@@ -6,8 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="EPELogger" />
         <module name="InventoryAppFX" />
         <module name="OrderAppFX" />
+        <module name="RESTfulWS" />
         <module name="ShippingAppFX" />
       </profile>
     </annotationProcessing>
@@ -17,6 +19,7 @@
       <module name="Logger" target="1.8" />
       <module name="OrderAppFX" target="1.8" />
       <module name="OrderAppFX1234" target="1.8" />
+      <module name="RESTfulWS" target="1.8" />
       <module name="ShippingAppFX" target="1.8" />
       <module name="TestModule" target="1.8" />
     </bytecodeTargetLevel>
