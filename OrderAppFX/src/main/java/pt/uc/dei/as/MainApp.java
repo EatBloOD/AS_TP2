@@ -15,13 +15,17 @@ import javafx.stage.Stage;
 import pt.uc.dei.as.controller.LoginController;
 import pt.uc.dei.as.controller.OrderEditorController;
 import pt.uc.dei.as.controller.OrderOverviewController;
+import pt.uc.dei.as.entity.Client;
 import pt.uc.dei.as.entity.Employer;
 import pt.uc.dei.as.entity.Order;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+
+import com.google.gson.reflect.TypeToken;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -289,7 +293,20 @@ public class MainApp extends Application {
 			System.err.println("OrderAppFX: Alternatively, just pass the database server IP:");
 			System.err.println("java -jar OrderAppFX-0.0.1.jar <db_server_IP> \n");
 			System.exit(-1);
+			
+			
+			
 		}
+		
+		String token = " ";
+		
+		try {
+			RestsUtils.doPost("helloWorld", token , Client.class, HttpURLConnection.HTTP_OK);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		launch(args);
 	}
 
