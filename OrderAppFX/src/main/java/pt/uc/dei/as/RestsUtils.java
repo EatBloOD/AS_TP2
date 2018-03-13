@@ -11,7 +11,7 @@ import com.google.gson.reflect.TypeToken;
 
 public class RestsUtils
 {
-    public static final String restfulWS = "http://localhost:8080/rest/";
+    public static final String restfulWS = "http://localhost:8080/RESTfulWS/rest/1.0/";
 
     public static <T> T doPost(String urlSegment, Object data, Class<T> type, int httpCode) throws Exception
     {

@@ -6,10 +6,12 @@
  */
 package entity;
 
-import com.google.gson.annotations.Expose;
-
-import javax.persistence.*;
 import java.io.Serializable;
+import javax.persistence.*;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -25,35 +27,34 @@ import java.util.List;
 public class Order implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false)
 	private int idOrders;
 
-	@Expose
 	@Temporal(TemporalType.DATE)
 	@Column(nullable = false)
 	private Date orders_Date;
 
-	@Expose
 	@Column(nullable = false)
 	private byte orders_Shipped;
 
-	@Expose
 	@Column(nullable = false, precision = 10)
 	private BigDecimal orders_Total_Cost;
 
-	@Expose
 	// bi-directional many-to-one association to Item
 	@OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
 	private List<Item> items;
 
-	@Expose
 	// bi-directional many-to-one association to Client
 	@ManyToOne
 	@JoinColumn(name = "Clients_idClients", nullable = false)
 	private Client client;
+
+	// bi-directional many-to-one association to Client
+	@ManyToOne
+	@JoinColumn(name = "Employers_idEmployers", nullable = false)
+	private Employer employe;
 
 	public Order() {
 	}
@@ -136,4 +137,11 @@ public class Order implements Serializable {
 		this.client = client;
 	}
 
+	public Employer getEmploye() {
+		return employe;
+	}
+
+	public void setEmploye(Employer employe) {
+		this.employe = employe;
+	}
 }

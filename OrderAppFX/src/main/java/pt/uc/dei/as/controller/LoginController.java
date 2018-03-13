@@ -13,7 +13,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import pt.uc.dei.as.AlertUtil;
 import pt.uc.dei.as.MainApp;
+import pt.uc.dei.as.RestsUtils;
+import pt.uc.dei.as.data.Login;
 import pt.uc.dei.as.entity.Employer;
+
+import java.net.HttpURLConnection;
 
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
@@ -23,7 +27,6 @@ import javax.swing.*;
  * The Class OrderOverviewController.
  */
 public class LoginController {
-
 
     /** The name field. */
     @FXML
@@ -38,7 +41,6 @@ public class LoginController {
 
     /** The main app. */
     private MainApp mainApp;
-
 
     /**
      * Instantiates a new login overview controller.
@@ -70,46 +72,32 @@ public class LoginController {
         System.out.println("UserName = " + username);
         System.out.println("UserPassword = " + userpassword);
 
-        //TODO: CÓDIGO PARA INSERIR UTILIZADOR
-        /*MainApp.em.getTransaction().begin();
-        MainApp.em.persist(new Employer("ola", "12@34", "locX", "91"));
-        MainApp.em.getTransaction().commit();*/
+        Login login = new Login();
 
-            TypedQuery<Employer> queryC = MainApp.em.createNamedQuery("Employers.findEmployer", Employer.class);
-            Employer e;
-            queryC.setParameter("employers_Name", userNameField.getText());
+        login.setPassword(userpassword);
+        login.setUSername(username);
 
-            try {
-                e = queryC.getSingleResult();
+        try {
+            
+            Employer e = RestsUtils.doPost("login", login , Employer.class, HttpURLConnection.HTTP_OK);
 
-                if (e.getEmployers_Name().equals(userNameField.getText())  && e.getEmployers_Password().equals(passwordField.getText())){
+            if (e != null){
 
-                    JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),"Login efectuado com sucesso!");
+                JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),"Login efectuado com sucesso!");
 
-                    //TODO: USAR ISTO PARA A FUNÇÃO UPDATE
-                    /*Criteria criteria = ((Session)MainApp.em.getDelegate()).createCriteria(Employer.class);
-                    Employer yourObject = (Employer) criteria.add(Restrictions.eq("employers_Name", "ola"))
-                            .uniqueResult();
-
-                    //Employer employee = MainApp.em.find(Employer.class, 1);
-                    MainApp.em.getTransaction().begin();
-                    yourObject.setEmployers_Name("jorge");
-                    MainApp.em.getTransaction().commit();*/
-
-                    //AlertUtil.askYesNoCancel("Login efectuado com sucesso!");
-                    mainApp.setEmployer(e);
-                    mainApp.showOrderOverview();
-                }else{
-                    if(AlertUtil.askYesNoCancel("Username ou password errados. Deseja tentar outra vez?!") == ButtonType.NO){
-                        return;
-                    }
-                }
-            } catch (NoResultException nre) {
+                mainApp.setEmployer(e);
+                mainApp.showOrderOverview();
+            }else{
                 if(AlertUtil.askYesNoCancel("Username ou password errados. Deseja tentar outra vez?!") == ButtonType.NO){
                     return;
                 }
+            }
+        } catch (Exception nre) {
+            if(AlertUtil.askYesNoCancel("Username ou password errados. Deseja tentar outra vez?!") == ButtonType.NO){
                 return;
             }
+            return;
+        } 
     }
 
 }
