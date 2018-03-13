@@ -2,10 +2,14 @@ package pt.uc.dei.as.data;
 
 import java.io.Serializable;
 
+import com.google.gson.annotations.Expose;
+
 public class Login implements Serializable {
     
     private static final long serialVersionUID = 1L;
-	private String username;
+    @Expose
+    private String username;
+    @Expose
     private String password;
 
     public Login() {

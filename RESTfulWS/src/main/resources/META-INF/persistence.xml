@@ -3,13 +3,13 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
 	<persistence-unit name="RESTfulWS" transaction-type="RESOURCE_LOCAL">
-		<class>pt.uc.dei.as.entity.Client</class>
-		<class>pt.uc.dei.as.entity.Item</class>
-		<class>pt.uc.dei.as.entity.ItemPK</class>
-		<class>pt.uc.dei.as.entity.Employer</class>
-		<class>pt.uc.dei.as.entity.Order</class>
-		<class>pt.uc.dei.as.entity.Product_Type</class>
-		<class>pt.uc.dei.as.entity.Product</class>
+		<class>entity.Client</class>
+		<class>entity.Item</class>
+		<class>entity.ItemPK</class>
+		<class>entity.Employer</class>
+		<class>entity.Order</class>
+		<class>entity.Product_Type</class>
+		<class>entity.Product</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url"
 				value="jdbc:mysql://localhost:3306/ete_db?useSSL=true&amp;verifyServerCertificate=false" />

@@ -8,6 +8,7 @@ package entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * The persistent class for the Clients database table.
@@ -39,9 +40,9 @@ public class Employer implements Serializable {
     @Column(nullable = false, length = 100)
     private String employers_Password;
 
-    /*// bi-directional many-to-one association to Order
+    // bi-directional many-to-one association to Order
     @OneToMany(mappedBy = "employe")
-    private List<Order> orders;*/
+    private List<Order> orders;
 
     public Employer() {
     }
@@ -62,7 +63,7 @@ public class Employer implements Serializable {
                 ", employers_Email='" + employers_Email + '\'' +
                 ", employers_Name='" + employers_Name + '\'' +
                 ", employers_Telephone='" + employers_Telephone + '\'' +
-                //", orders=" + orders +
+                ", orders=" + orders +
                 '}';
     }
 

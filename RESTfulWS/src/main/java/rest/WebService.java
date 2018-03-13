@@ -51,7 +51,7 @@ public class WebService {
 
     @POST
     @Path("/login")
-    @Consumes("aplication/json")
+    @Consumes("application/json")
     public Response Login(Login login) {
 
         TypedQuery<Employer> queryC = em.createNamedQuery("Employers.findEmployer", Employer.class);
@@ -61,8 +61,7 @@ public class WebService {
         try {
             e = queryC.getSingleResult();
 
-            if (e.getEmployers_Name().equals(login.getUsername())
-                    && e.getEmployers_Password().equals(login.getPassword())) {
+            if (e.getEmployers_Password().equals(login.getPassword())) {
 
                 Gson gson = new Gson();
                 

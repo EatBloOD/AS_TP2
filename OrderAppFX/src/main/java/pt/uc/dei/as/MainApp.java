@@ -298,14 +298,6 @@ public class MainApp extends Application {
 			
 		}
 		
-		String token = " ";
-		
-		try {
-			RestsUtils.doPost("helloWorld", token , Client.class, HttpURLConnection.HTTP_OK);
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
 		launch(args);
 	}
