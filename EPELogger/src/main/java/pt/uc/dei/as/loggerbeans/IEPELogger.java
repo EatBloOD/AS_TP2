@@ -5,15 +5,11 @@ import javax.ejb.Remote;
 @Remote
 public interface IEPELogger {
 
-    int getLoginAction();
 
-    int getNewOrderAction();
+    void loginInfo(String username, int action);
 
-    int getShippingAction();
+    void orderInfo(String employer, int idOrder);
 
-    void info(String infoMessage, int id);
+    void shippingInfo(int idOrder);
 
-    void warning(String warningMessage, int id);
-
-    void error(String errorMessage, int id);
 }

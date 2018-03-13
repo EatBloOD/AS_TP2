@@ -1,0 +1,961 @@
+2018-03-10 00:36:16,504 INFO  [org.jboss.as.repository] (DeploymentScanner-threads - 2) WFLYDR0001: Content added at location /home/osboxes/Desktop/wildfly-11.0.0.Final/standalone/data/content/d1/69183571e9086b203273dda27c034f9de4ed19/content
+2018-03-10 00:36:16,863 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment EPELogger (runtime-name: EPELogger) in 264ms
+2018-03-10 00:36:16,871 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "EPELogger" (runtime-name: "EPELogger")
+2018-03-10 00:36:16,939 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-6) WFLYSRV0027: Starting deployment of "EPELogger-1.0-SNAPSHOT.jar" (runtime-name: "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 00:36:16,940 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-2) WFLYSRV0028: Stopped deployment pom.xml (runtime-name: pom.xml) in 61ms
+2018-03-10 00:36:17,567 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-6) MSC000001: Failed to start service jboss.deployment.unit.EPELogger.POST_MODULE: org.jboss.msc.service.StartException in service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:172)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:2032)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1955)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:239)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.deploy(BusinessViewAnnotationProcessor.java:89)
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:165)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:412)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:400)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:237)
+	... 7 more
+
+2018-03-10 00:36:17,843 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment EPELogger-1.0-SNAPSHOT.jar
+2018-03-10 00:36:18,204 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-8) HV000001: Hibernate Validator 5.3.5.Final
+2018-03-10 00:36:18,741 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-8) WFLYEJB0473: JNDI bindings for session bean named 'EPELogger' in deployment unit 'deployment "EPELogger-1.0-SNAPSHOT.jar"' are as follows:
+
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:module/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:jboss/exported/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:module/EPELogger
+
+2018-03-10 00:36:19,504 INFO  [org.jboss.weld.Version] (MSC service thread 1-1) WELD-000900: 2.4.3 (Final)
+2018-03-10 00:36:22,582 ERROR [org.jboss.as.controller.management-operation] (DeploymentScanner-threads - 2) WFLYCTL0013: Operation ("full-replace-deployment") failed - address: ([]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.EPELogger.POST_MODULE" => "WFLYSRV0153: Failed to process phase POST_MODULE of deployment \"EPELogger\"
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]"}}
+2018-03-10 00:36:22,918 INFO  [org.jboss.as.repository] (DeploymentScanner-threads - 2) WFLYDR0002: Content removed from location /home/osboxes/Desktop/wildfly-11.0.0.Final/standalone/data/content/ee/d0129162dc77e2c90a78e7f578f8317638f9f2/content
+2018-03-10 00:36:22,920 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) WFLYSRV0009: Undeployed "pom.xml" (runtime-name: "pom.xml")
+2018-03-10 00:36:22,920 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) WFLYSRV0010: Deployed "EPELogger-1.0-SNAPSHOT.jar" (runtime-name : "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 00:36:22,921 INFO  [org.jboss.as.server] (DeploymentScanner-threads - 2) WFLYSRV0016: Replaced deployment "EPELogger" with deployment "EPELogger"
+2018-03-10 00:36:22,931 INFO  [org.jboss.as.controller] (DeploymentScanner-threads - 2) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+
+2018-03-10 00:38:48,203 WARN  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0037: /home/osboxes/Desktop/wildfly-11.0.0.Final/standalone/deployments does not exist
+2018-03-10 00:38:48,204 WARN  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0043: Deployment directory scan failed due to inaccessible deployment directory: /home/osboxes/Desktop/wildfly-11.0.0.Final/standalone/deployments
+2018-03-10 00:40:12,062 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 33) WFLYDR0011: Couldn't list directory files for /home/osboxes/Desktop/wildfly-11.0.0.Final/standalone/data/content
+2018-03-10 00:45:12,069 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 1) WFLYDR0011: Couldn't list directory files for /home/osboxes/Desktop/wildfly-11.0.0.Final/standalone/data/content
+2018-03-10 00:50:12,073 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 1) WFLYDR0011: Couldn't list directory files for /home/osboxes/Desktop/wildfly-11.0.0.Final/standalone/data/content
+2018-03-10 00:55:12,074 INFO  [org.jboss.as.repository] (ServerService Thread Pool -- 33) WFLYDR0011: Couldn't list directory files for /home/osboxes/Desktop/wildfly-11.0.0.Final/standalone/data/content
+2018-03-10 09:26:47,633 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 45) WFLYCLINF0001: Activating Infinispan subsystem.
+2018-03-10 09:26:47,679 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 64) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2018-03-10 09:26:47,677 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 63) WFLYSEC0002: Activating Security Subsystem
+2018-03-10 09:26:47,674 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 56) WFLYNAM0001: Activating Naming Subsystem
+2018-03-10 09:26:47,649 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 47) WFLYRS0016: RESTEasy version 3.0.24.Final
+2018-03-10 09:26:47,638 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 52) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2018-03-10 09:26:47,636 INFO  [org.wildfly.iiop.openjdk] (ServerService Thread Pool -- 46) WFLYIIOP0001: Activating IIOP Subsystem
+2018-03-10 09:26:47,724 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 66) WFLYWS0002: Activating WebServices Extension
+2018-03-10 09:26:47,752 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 44) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2018-03-10 09:26:47,800 INFO  [org.jboss.as.connector] (MSC service thread 1-3) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.6.Final)
+2018-03-10 09:26:47,967 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0003: Undertow 1.4.18.Final starting
+2018-03-10 09:26:48,035 INFO  [org.jboss.as.security] (MSC service thread 1-1) WFLYSEC0001: Current PicketBox version=5.0.2.Final
+2018-03-10 09:26:48,101 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 39) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2018-03-10 09:26:48,104 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = h2
+2018-03-10 09:26:48,152 INFO  [org.jboss.as.naming] (MSC service thread 1-7) WFLYNAM0003: Starting Naming Service
+2018-03-10 09:26:48,153 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-5) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2018-03-10 09:26:48,676 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2018-03-10 09:26:48,676 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2018-03-10 09:26:48,718 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 65) WFLYUT0014: Creating file handler for path '/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2018-03-10 09:26:48,749 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0012: Started server default-server.
+2018-03-10 09:26:48,825 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0018: Host default-host starting
+2018-03-10 09:26:48,991 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2018-03-10 09:26:49,074 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0493: EJB subsystem suspension complete
+2018-03-10 09:26:49,224 INFO  [org.jboss.as.patching] (MSC service thread 1-4) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2018-03-10 09:26:49,336 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-4) WFLYDM0111: Keystore /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2018-03-10 09:26:49,391 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-8) WFLYDS0013: Started FileSystemDeploymentService for directory /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/deployments
+2018-03-10 09:26:49,409 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "EPELogger-1.0-SNAPSHOT.jar" (runtime-name: "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 09:26:49,425 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "EPELogger" (runtime-name: "EPELogger")
+2018-03-10 09:26:49,462 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2018-03-10 09:26:49,550 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221000: live Message Broker is starting with configuration Broker Configuration (clustered=false,journalDirectory=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data/activemq/journal,bindingsDirectory=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data/activemq/bindings,largeMessagesDirectory=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data/activemq/largemessages,pagingDirectory=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data/activemq/paging)
+2018-03-10 09:26:49,656 INFO  [org.wildfly.iiop.openjdk] (MSC service thread 1-6) WFLYIIOP0009: CORBA ORB Service started
+2018-03-10 09:26:49,664 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221012: Using AIO Journal
+2018-03-10 09:26:49,830 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2018-03-10 09:26:49,910 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221043: Protocol module found: [artemis-server]. Adding protocol support for: CORE
+2018-03-10 09:26:49,955 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221043: Protocol module found: [artemis-amqp-protocol]. Adding protocol support for: AMQP
+2018-03-10 09:26:49,969 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221043: Protocol module found: [artemis-hornetq-protocol]. Adding protocol support for: HORNETQ
+2018-03-10 09:26:49,971 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221043: Protocol module found: [artemis-stomp-protocol]. Adding protocol support for: STOMP
+2018-03-10 09:26:50,184 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-4) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+2018-03-10 09:26:50,185 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-2) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+2018-03-10 09:26:50,184 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-1) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor acceptor
+2018-03-10 09:26:50,185 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-5) WFLYMSGAMQ0016: Registered HTTP upgrade for activemq-remoting protocol handled by http-acceptor-throughput acceptor
+2018-03-10 09:26:50,281 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 5.1.9.Final (Apache CXF 3.1.12) 
+2018-03-10 09:26:50,551 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221007: Server is now live
+2018-03-10 09:26:50,551 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 68) AMQ221001: Apache ActiveMQ Artemis Message Broker version 1.5.5.jbossorg-008 [default, nodeID=2912a12d-2445-11e8-beba-000c29a2f31f] 
+2018-03-10 09:26:50,651 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 68) WFLYMSGAMQ0002: Bound messaging object to jndi name java:/ConnectionFactory
+2018-03-10 09:26:50,681 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-5) MSC000001: Failed to start service jboss.deployment.unit.EPELogger.POST_MODULE: org.jboss.msc.service.StartException in service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:172)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:2032)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1955)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:239)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.deploy(BusinessViewAnnotationProcessor.java:89)
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:165)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:412)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:400)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:237)
+	... 7 more
+
+2018-03-10 09:26:50,729 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 71) AMQ221003: Deploying queue jms.queue.ExpiryQueue
+2018-03-10 09:26:50,809 INFO  [org.jboss.weld.deployer] (MSC service thread 1-4) WFLYWELD0003: Processing weld deployment EPELogger-1.0-SNAPSHOT.jar
+2018-03-10 09:26:50,824 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-6) WFLYJCA0007: Registered connection factory java:/JmsXA
+2018-03-10 09:26:50,857 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 70) AMQ221003: Deploying queue jms.queue.DLQ
+2018-03-10 09:26:50,864 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 69) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+2018-03-10 09:26:50,939 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-4) HV000001: Hibernate Validator 5.3.5.Final
+2018-03-10 09:26:50,974 INFO  [org.apache.activemq.artemis.ra] (MSC service thread 1-6) Resource adaptor started
+2018-03-10 09:26:50,977 INFO  [org.jboss.as.connector.services.resourceadapters.ResourceAdapterActivatorService$ResourceAdapterActivator] (MSC service thread 1-6) IJ020002: Deployed: file://RaActivatoractivemq-ra
+2018-03-10 09:26:50,992 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-3) WFLYJCA0002: Bound JCA ConnectionFactory [java:/JmsXA]
+2018-03-10 09:26:50,995 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-5) WFLYMSGAMQ0002: Bound messaging object to jndi name java:jboss/DefaultJMSConnectionFactory
+2018-03-10 09:26:51,117 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-4) WFLYEJB0473: JNDI bindings for session bean named 'EPELogger' in deployment unit 'deployment "EPELogger-1.0-SNAPSHOT.jar"' are as follows:
+
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:module/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:jboss/exported/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:module/EPELogger
+
+2018-03-10 09:26:51,864 INFO  [org.jboss.weld.Version] (MSC service thread 1-4) WELD-000900: 2.4.3 (Final)
+2018-03-10 09:26:52,024 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-6) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.8.Final
+2018-03-10 09:26:52,947 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 69) WFLYCLINF0002: Started client-mappings cache from ejb container
+2018-03-10 09:26:53,650 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "EPELogger")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.EPELogger.POST_MODULE" => "WFLYSRV0153: Failed to process phase POST_MODULE of deployment \"EPELogger\"
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]"}}
+2018-03-10 09:26:53,662 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 40) WFLYSRV0010: Deployed "EPELogger-1.0-SNAPSHOT.jar" (runtime-name : "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 09:26:53,663 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 40) WFLYSRV0010: Deployed "EPELogger" (runtime-name : "EPELogger")
+2018-03-10 09:26:53,664 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+
+2018-03-10 09:26:53,781 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2018-03-10 09:26:53,784 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2018-03-10 09:26:53,785 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2018-03-10 09:26:53,785 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) started (with errors) in 12465ms - Started 463 of 688 services (1 services failed or missing dependencies, 368 services are lazy, passive or on-demand)
+2018-03-10 10:35:32,527 INFO  [org.jboss.as.server] (Thread-2) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2018-03-10 10:35:32,609 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 69) WFLYMSGAMQ0006: Unbound messaging object to jndi name java:jboss/exported/jms/RemoteConnectionFactory
+2018-03-10 10:35:32,626 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0019: Host default-host stopping
+2018-03-10 10:35:32,626 INFO  [org.wildfly.extension.messaging-activemq] (ServerService Thread Pool -- 74) WFLYMSGAMQ0006: Unbound messaging object to jndi name java:/ConnectionFactory
+2018-03-10 10:35:32,674 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0028: Stopped deployment EPELogger (runtime-name: EPELogger) in 132ms
+2018-03-10 10:35:32,736 INFO  [org.wildfly.extension.messaging-activemq] (MSC service thread 1-6) WFLYMSGAMQ0006: Unbound messaging object to jndi name java:jboss/DefaultJMSConnectionFactory
+2018-03-10 10:35:32,737 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-4) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2018-03-10 10:35:32,737 INFO  [org.jboss.as.connector.deployment] (MSC service thread 1-1) WFLYJCA0011: Unbound JCA ConnectionFactory [java:/JmsXA]
+2018-03-10 10:35:32,796 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2018-03-10 10:35:32,812 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 69) WFLYCLINF0003: Stopped client-mappings cache from ejb container
+2018-03-10 10:35:32,856 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0008: Undertow HTTPS listener https suspending
+2018-03-10 10:35:32,859 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2018-03-10 10:35:32,860 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment EPELogger-1.0-SNAPSHOT.jar (runtime-name: EPELogger-1.0-SNAPSHOT.jar) in 318ms
+2018-03-10 10:35:32,927 INFO  [org.apache.activemq.artemis.ra] (ServerService Thread Pool -- 76) AMQ151003: resource adaptor stopped
+2018-03-10 10:35:33,124 INFO  [org.apache.activemq.artemis.core.server] (ServerService Thread Pool -- 76) AMQ221002: Apache ActiveMQ Artemis Message Broker version 1.5.5.jbossorg-008 [2912a12d-2445-11e8-beba-000c29a2f31f] stopped, uptime 1 hour 8 minutes
+2018-03-10 10:35:33,127 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0008: Undertow HTTP listener default suspending
+2018-03-10 10:35:33,127 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2018-03-10 10:35:33,128 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0004: Undertow 1.4.18.Final stopping
+2018-03-10 10:35:33,149 INFO  [org.jboss.as] (MSC service thread 1-3) WFLYSRV0050: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) stopped in 591ms
+2018-03-10 10:35:36,291 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.1.Final
+2018-03-10 10:35:36,939 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1
+2018-03-10 10:35:37,229 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) starting
+2018-03-10 10:35:37,230 DEBUG [org.jboss.as.config] (MSC service thread 1-7) Configured system properties:
+	[Standalone] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.encoding.pkg = sun.io
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/endorsed
+	java.ext.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext
+	java.home = /usr/lib/jvm/java-8-oracle/jre
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib/i386:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_161-b12
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_161
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.161-b12
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final
+	jboss.host.name = osboxes
+	jboss.modules.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = osboxes
+	jboss.qualified.host.name = osboxes
+	jboss.server.base.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone
+	jboss.server.config.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration
+	jboss.server.data.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data
+	jboss.server.deploy.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data/content
+	jboss.server.log.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log
+	jboss.server.name = osboxes
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/tmp
+	line.separator = 
+
+	logging.configuration = file:/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/logging.properties
+	module.path = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules
+	org.jboss.boot.log.file = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log/server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = i386
+	os.name = Linux
+	os.version = 4.13.0-36-generic
+	path.separator = :
+	sun.arch.data.model = 32
+	sun.boot.class.path = /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes
+	sun.boot.library.path = /usr/lib/jvm/java-8-oracle/jre/lib/i386
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/jboss-modules.jar -mp /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules org.jboss.as.standalone -Djboss.home.dir=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final -Djboss.server.base.dir=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone -c standalone-full.xml
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = US
+	user.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/bin
+	user.home = /home/osboxes
+	user.language = en
+	user.name = osboxes
+	user.timezone = Europe/Lisbon
+2018-03-10 10:35:37,230 DEBUG [org.jboss.as.config] (MSC service thread 1-7) VM Arguments: -D[Standalone] -Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log/server.log -Dlogging.configuration=file:/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/logging.properties 
+2018-03-10 10:35:37,929 INFO  [org.jboss.as.server] (Thread-2) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2018-03-10 10:35:37,962 INFO  [org.jboss.as] (MSC service thread 1-4) WFLYSRV0050: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) stopped in 28ms
+2018-03-10 10:35:42,537 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.1.Final
+2018-03-10 10:35:42,908 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1
+2018-03-10 10:35:43,087 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) starting
+2018-03-10 10:35:43,088 DEBUG [org.jboss.as.config] (MSC service thread 1-7) Configured system properties:
+	[Standalone] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.encoding.pkg = sun.io
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/endorsed
+	java.ext.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext
+	java.home = /usr/lib/jvm/java-8-oracle/jre
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib/i386:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_161-b12
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_161
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.161-b12
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final
+	jboss.host.name = osboxes
+	jboss.modules.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = osboxes
+	jboss.qualified.host.name = osboxes
+	jboss.server.base.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone
+	jboss.server.config.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration
+	jboss.server.data.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data
+	jboss.server.deploy.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data/content
+	jboss.server.log.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log
+	jboss.server.name = osboxes
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/tmp
+	line.separator = 
+
+	logging.configuration = file:/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/logging.properties
+	module.path = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules
+	org.jboss.boot.log.file = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log/server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = i386
+	os.name = Linux
+	os.version = 4.13.0-36-generic
+	path.separator = :
+	sun.arch.data.model = 32
+	sun.boot.class.path = /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes
+	sun.boot.library.path = /usr/lib/jvm/java-8-oracle/jre/lib/i386
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/jboss-modules.jar -mp /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules org.jboss.as.standalone -Djboss.home.dir=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final -Djboss.server.base.dir=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone -c standalone.xml
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = US
+	user.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/bin
+	user.home = /home/osboxes
+	user.language = en
+	user.name = osboxes
+	user.timezone = Europe/Lisbon
+2018-03-10 10:35:43,095 DEBUG [org.jboss.as.config] (MSC service thread 1-7) VM Arguments: -D[Standalone] -Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log/server.log -Dlogging.configuration=file:/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/logging.properties 
+2018-03-10 10:35:45,093 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2018-03-10 10:35:45,127 INFO  [org.wildfly.security] (ServerService Thread Pool -- 16) ELY00001: WildFly Elytron version 1.1.6.Final
+2018-03-10 10:35:45,153 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 29) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2018-03-10 10:35:45,179 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment EPELogger
+2018-03-10 10:35:45,189 ERROR [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0011: The deployment scanner found a directory named META-INF that was not inside a directory whose name ends with .ear, .jar, .rar, .sar or .war. This is likely the result of unzipping an archive directly inside the /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/deployments directory, which is a user error. The META-INF directory will not be scanned for deployments, but it is possible that the scanner may find other files from the unzipped archive and attempt to deploy them, leading to errors.
+2018-03-10 10:35:45,280 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2018-03-10 10:35:45,324 INFO  [org.xnio] (MSC service thread 1-8) XNIO version 3.5.4.Final
+2018-03-10 10:35:45,335 INFO  [org.xnio.nio] (MSC service thread 1-8) XNIO NIO Implementation Version 3.5.4.Final
+2018-03-10 10:35:45,425 INFO  [org.jboss.remoting] (MSC service thread 1-5) JBoss Remoting version 5.0.5.Final
+2018-03-10 10:35:45,493 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0001: Activating Infinispan subsystem.
+2018-03-10 10:35:45,496 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 58) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2018-03-10 10:35:45,502 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 48) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2018-03-10 10:35:45,529 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 43) WFLYRS0016: RESTEasy version 3.0.24.Final
+2018-03-10 10:35:45,536 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 41) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2018-03-10 10:35:45,538 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 57) WFLYSEC0002: Activating Security Subsystem
+2018-03-10 10:35:45,613 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 60) WFLYWS0002: Activating WebServices Extension
+2018-03-10 10:35:45,619 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 50) WFLYNAM0001: Activating Naming Subsystem
+2018-03-10 10:35:45,642 INFO  [org.jboss.as.security] (MSC service thread 1-7) WFLYSEC0001: Current PicketBox version=5.0.2.Final
+2018-03-10 10:35:45,652 INFO  [org.jboss.as.connector] (MSC service thread 1-5) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.6.Final)
+2018-03-10 10:35:45,687 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0003: Undertow 1.4.18.Final starting
+2018-03-10 10:35:45,800 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 36) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2018-03-10 10:35:45,804 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-8) WFLYJCA0018: Started Driver service with driver-name = h2
+2018-03-10 10:35:45,932 INFO  [org.jboss.as.naming] (MSC service thread 1-4) WFLYNAM0003: Starting Naming Service
+2018-03-10 10:35:45,932 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-7) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2018-03-10 10:35:46,276 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 59) WFLYUT0014: Creating file handler for path '/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2018-03-10 10:35:46,430 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+2018-03-10 10:35:46,433 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0018: Host default-host starting
+2018-03-10 10:35:46,659 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2018-03-10 10:35:46,698 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2018-03-10 10:35:46,698 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2018-03-10 10:35:46,871 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0493: EJB subsystem suspension complete
+2018-03-10 10:35:47,047 INFO  [org.jboss.as.patching] (MSC service thread 1-3) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2018-03-10 10:35:47,063 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2018-03-10 10:35:47,090 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-8) WFLYDM0111: Keystore /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2018-03-10 10:35:47,103 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-5) WFLYDS0013: Started FileSystemDeploymentService for directory /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/deployments
+2018-03-10 10:35:47,116 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "EPELogger-1.0-SNAPSHOT.jar" (runtime-name: "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 10:35:47,124 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "EPELogger" (runtime-name: "EPELogger")
+2018-03-10 10:35:47,375 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2018-03-10 10:35:47,540 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 5.1.9.Final (Apache CXF 3.1.12) 
+2018-03-10 10:35:47,822 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-3) MSC000001: Failed to start service jboss.deployment.unit.EPELogger.POST_MODULE: org.jboss.msc.service.StartException in service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:172)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:2032)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1955)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:239)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.deploy(BusinessViewAnnotationProcessor.java:89)
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:165)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:412)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:400)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:237)
+	... 7 more
+
+2018-03-10 10:35:47,912 INFO  [org.jboss.weld.deployer] (MSC service thread 1-8) WFLYWELD0003: Processing weld deployment EPELogger-1.0-SNAPSHOT.jar
+2018-03-10 10:35:48,026 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-8) HV000001: Hibernate Validator 5.3.5.Final
+2018-03-10 10:35:48,165 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-8) WFLYEJB0473: JNDI bindings for session bean named 'EPELogger' in deployment unit 'deployment "EPELogger-1.0-SNAPSHOT.jar"' are as follows:
+
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:module/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:jboss/exported/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:module/EPELogger
+
+2018-03-10 10:35:48,512 INFO  [org.jboss.weld.Version] (MSC service thread 1-8) WELD-000900: 2.4.3 (Final)
+2018-03-10 10:35:48,618 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-6) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.8.Final
+2018-03-10 10:35:49,337 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 62) WFLYCLINF0002: Started client-mappings cache from ejb container
+2018-03-10 10:35:50,083 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "EPELogger")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.EPELogger.POST_MODULE" => "WFLYSRV0153: Failed to process phase POST_MODULE of deployment \"EPELogger\"
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]"}}
+2018-03-10 10:35:50,099 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "EPELogger-1.0-SNAPSHOT.jar" (runtime-name : "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 10:35:50,103 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "EPELogger" (runtime-name : "EPELogger")
+2018-03-10 10:35:50,108 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+
+2018-03-10 10:35:50,199 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2018-03-10 10:35:50,201 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2018-03-10 10:35:50,201 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2018-03-10 10:35:50,202 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) started (with errors) in 8085ms - Started 421 of 646 services (1 services failed or missing dependencies, 352 services are lazy, passive or on-demand)
+2018-03-10 11:15:10,752 INFO  [org.jboss.as.server] (Thread-2) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2018-03-10 11:15:10,816 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0019: Host default-host stopping
+2018-03-10 11:15:10,828 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment EPELogger (runtime-name: EPELogger) in 57ms
+2018-03-10 11:15:10,957 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-6) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2018-03-10 11:15:11,001 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-5) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2018-03-10 11:15:11,018 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 66) WFLYCLINF0003: Stopped client-mappings cache from ejb container
+2018-03-10 11:15:11,053 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0008: Undertow HTTP listener default suspending
+2018-03-10 11:15:11,053 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2018-03-10 11:15:11,077 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0008: Undertow HTTPS listener https suspending
+2018-03-10 11:15:11,077 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2018-03-10 11:15:11,081 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0004: Undertow 1.4.18.Final stopping
+2018-03-10 11:15:11,087 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0028: Stopped deployment EPELogger-1.0-SNAPSHOT.jar (runtime-name: EPELogger-1.0-SNAPSHOT.jar) in 315ms
+2018-03-10 11:15:11,102 INFO  [org.jboss.as] (MSC service thread 1-5) WFLYSRV0050: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) stopped in 331ms
+2018-03-10 11:15:13,779 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.1.Final
+2018-03-10 11:15:14,432 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1
+2018-03-10 11:15:14,710 INFO  [org.jboss.as] (MSC service thread 1-7) WFLYSRV0049: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) starting
+2018-03-10 11:15:14,712 DEBUG [org.jboss.as.config] (MSC service thread 1-7) Configured system properties:
+	[Standalone] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.encoding.pkg = sun.io
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/endorsed
+	java.ext.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext
+	java.home = /usr/lib/jvm/java-8-oracle/jre
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib/i386:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_161-b12
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_161
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.161-b12
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final
+	jboss.host.name = osboxes
+	jboss.modules.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = osboxes
+	jboss.qualified.host.name = osboxes
+	jboss.server.base.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone
+	jboss.server.config.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration
+	jboss.server.data.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data
+	jboss.server.deploy.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data/content
+	jboss.server.log.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log
+	jboss.server.name = osboxes
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/tmp
+	line.separator = 
+
+	logging.configuration = file:/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/logging.properties
+	module.path = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules
+	org.jboss.boot.log.file = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log/server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = i386
+	os.name = Linux
+	os.version = 4.13.0-36-generic
+	path.separator = :
+	sun.arch.data.model = 32
+	sun.boot.class.path = /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes
+	sun.boot.library.path = /usr/lib/jvm/java-8-oracle/jre/lib/i386
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/jboss-modules.jar -mp /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules org.jboss.as.standalone -Djboss.home.dir=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final -Djboss.server.base.dir=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone -c standalone.xml
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = US
+	user.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/bin
+	user.home = /home/osboxes
+	user.language = en
+	user.name = osboxes
+	user.timezone = Europe/Lisbon
+2018-03-10 11:15:14,712 DEBUG [org.jboss.as.config] (MSC service thread 1-7) VM Arguments: -D[Standalone] -Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log/server.log -Dlogging.configuration=file:/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/logging.properties 
+2018-03-10 11:15:16,810 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2018-03-10 11:15:16,839 INFO  [org.wildfly.security] (ServerService Thread Pool -- 29) ELY00001: WildFly Elytron version 1.1.6.Final
+2018-03-10 11:15:16,865 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 11) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2018-03-10 11:15:16,888 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment EPELogger
+2018-03-10 11:15:16,897 ERROR [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0011: The deployment scanner found a directory named META-INF that was not inside a directory whose name ends with .ear, .jar, .rar, .sar or .war. This is likely the result of unzipping an archive directly inside the /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/deployments directory, which is a user error. The META-INF directory will not be scanned for deployments, but it is possible that the scanner may find other files from the unzipped archive and attempt to deploy them, leading to errors.
+2018-03-10 11:15:16,992 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2018-03-10 11:15:17,039 INFO  [org.xnio] (MSC service thread 1-5) XNIO version 3.5.4.Final
+2018-03-10 11:15:17,048 INFO  [org.xnio.nio] (MSC service thread 1-5) XNIO NIO Implementation Version 3.5.4.Final
+2018-03-10 11:15:17,167 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0001: Activating Infinispan subsystem.
+2018-03-10 11:15:17,181 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 48) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2018-03-10 11:15:17,179 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 43) WFLYRS0016: RESTEasy version 3.0.24.Final
+2018-03-10 11:15:17,212 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 58) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2018-03-10 11:15:17,222 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 41) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2018-03-10 11:15:17,243 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 50) WFLYNAM0001: Activating Naming Subsystem
+2018-03-10 11:15:17,265 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 57) WFLYSEC0002: Activating Security Subsystem
+2018-03-10 11:15:17,322 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 60) WFLYWS0002: Activating WebServices Extension
+2018-03-10 11:15:17,411 INFO  [org.jboss.as.connector] (MSC service thread 1-3) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.6.Final)
+2018-03-10 11:15:17,403 INFO  [org.jboss.as.security] (MSC service thread 1-7) WFLYSEC0001: Current PicketBox version=5.0.2.Final
+2018-03-10 11:15:17,430 INFO  [org.jboss.remoting] (MSC service thread 1-2) JBoss Remoting version 5.0.5.Final
+2018-03-10 11:15:17,511 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 36) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2018-03-10 11:15:17,592 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = h2
+2018-03-10 11:15:17,592 INFO  [org.jboss.as.naming] (MSC service thread 1-3) WFLYNAM0003: Starting Naming Service
+2018-03-10 11:15:17,598 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-6) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2018-03-10 11:15:17,729 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0003: Undertow 1.4.18.Final starting
+2018-03-10 11:15:18,208 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2018-03-10 11:15:18,210 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2018-03-10 11:15:18,284 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 59) WFLYUT0014: Creating file handler for path '/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2018-03-10 11:15:18,326 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0012: Started server default-server.
+2018-03-10 11:15:18,333 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-6) WFLYUT0018: Host default-host starting
+2018-03-10 11:15:18,517 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2018-03-10 11:15:18,621 INFO  [org.jboss.as.ejb3] (MSC service thread 1-5) WFLYEJB0493: EJB subsystem suspension complete
+2018-03-10 11:15:18,782 INFO  [org.jboss.as.patching] (MSC service thread 1-7) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2018-03-10 11:15:18,878 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-8) WFLYDM0111: Keystore /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2018-03-10 11:15:18,917 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-5) WFLYDS0013: Started FileSystemDeploymentService for directory /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/deployments
+2018-03-10 11:15:18,936 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-3) WFLYSRV0027: Starting deployment of "EPELogger-1.0-SNAPSHOT.jar" (runtime-name: "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 11:15:18,939 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0027: Starting deployment of "EPELogger" (runtime-name: "EPELogger")
+2018-03-10 11:15:18,999 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2018-03-10 11:15:19,369 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2018-03-10 11:15:19,537 INFO  [org.jboss.ws.common.management] (MSC service thread 1-7) JBWS022052: Starting JBossWS 5.1.9.Final (Apache CXF 3.1.12) 
+2018-03-10 11:15:19,805 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-6) MSC000001: Failed to start service jboss.deployment.unit.EPELogger.POST_MODULE: org.jboss.msc.service.StartException in service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:172)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:2032)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1955)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:239)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.deploy(BusinessViewAnnotationProcessor.java:89)
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:165)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:412)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:400)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:237)
+	... 7 more
+
+2018-03-10 11:15:19,885 INFO  [org.jboss.weld.deployer] (MSC service thread 1-2) WFLYWELD0003: Processing weld deployment EPELogger-1.0-SNAPSHOT.jar
+2018-03-10 11:15:20,012 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-2) HV000001: Hibernate Validator 5.3.5.Final
+2018-03-10 11:15:20,139 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-2) WFLYEJB0473: JNDI bindings for session bean named 'EPELogger' in deployment unit 'deployment "EPELogger-1.0-SNAPSHOT.jar"' are as follows:
+
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:module/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:jboss/exported/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:module/EPELogger
+
+2018-03-10 11:15:20,481 INFO  [org.jboss.weld.Version] (MSC service thread 1-1) WELD-000900: 2.4.3 (Final)
+2018-03-10 11:15:20,593 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-4) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.8.Final
+2018-03-10 11:15:21,106 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 62) WFLYCLINF0002: Started client-mappings cache from ejb container
+2018-03-10 11:15:21,675 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "EPELogger")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.EPELogger.POST_MODULE" => "WFLYSRV0153: Failed to process phase POST_MODULE of deployment \"EPELogger\"
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]"}}
+2018-03-10 11:15:21,683 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "EPELogger-1.0-SNAPSHOT.jar" (runtime-name : "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 11:15:21,686 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "EPELogger" (runtime-name : "EPELogger")
+2018-03-10 11:15:21,690 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+
+2018-03-10 11:15:21,801 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2018-03-10 11:15:21,804 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2018-03-10 11:15:21,805 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2018-03-10 11:15:21,805 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) started (with errors) in 8722ms - Started 421 of 646 services (1 services failed or missing dependencies, 352 services are lazy, passive or on-demand)
+2018-03-10 11:30:02,489 INFO  [org.jboss.as.server] (Thread-2) WFLYSRV0220: Server shutdown has been requested via an OS signal
+2018-03-10 11:30:02,563 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0019: Host default-host stopping
+2018-03-10 11:30:02,588 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-8) WFLYSRV0028: Stopped deployment EPELogger (runtime-name: EPELogger) in 54ms
+2018-03-10 11:30:02,615 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-3) WFLYJCA0010: Unbound data source [java:jboss/datasources/ExampleDS]
+2018-03-10 11:30:02,683 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-4) WFLYJCA0019: Stopped Driver service with driver-name = h2
+2018-03-10 11:30:02,714 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 65) WFLYCLINF0003: Stopped client-mappings cache from ejb container
+2018-03-10 11:30:02,761 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment EPELogger-1.0-SNAPSHOT.jar (runtime-name: EPELogger-1.0-SNAPSHOT.jar) in 230ms
+2018-03-10 11:30:02,770 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0008: Undertow HTTP listener default suspending
+2018-03-10 11:30:02,770 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0008: Undertow HTTPS listener https suspending
+2018-03-10 11:30:02,774 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0007: Undertow HTTP listener default stopped, was bound to 127.0.0.1:8080
+2018-03-10 11:30:02,775 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0007: Undertow HTTPS listener https stopped, was bound to 127.0.0.1:8443
+2018-03-10 11:30:02,780 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0004: Undertow 1.4.18.Final stopping
+2018-03-10 11:30:02,827 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0050: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) stopped in 297ms
+2018-03-10 11:30:04,945 INFO  [org.jboss.modules] (main) JBoss Modules version 1.6.1.Final
+2018-03-10 11:30:05,287 INFO  [org.jboss.msc] (main) JBoss MSC version 1.2.7.SP1
+2018-03-10 11:30:05,458 INFO  [org.jboss.as] (MSC service thread 1-8) WFLYSRV0049: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) starting
+2018-03-10 11:30:05,459 DEBUG [org.jboss.as.config] (MSC service thread 1-8) Configured system properties:
+	[Standalone] = 
+	awt.toolkit = sun.awt.X11.XToolkit
+	file.encoding = UTF-8
+	file.encoding.pkg = sun.io
+	file.separator = /
+	java.awt.graphicsenv = sun.awt.X11GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.print.PSPrinterJob
+	java.class.path = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/endorsed
+	java.ext.dirs = /usr/lib/jvm/java-8-oracle/jre/lib/ext:/usr/java/packages/lib/ext
+	java.home = /usr/lib/jvm/java-8-oracle/jre
+	java.io.tmpdir = /tmp
+	java.library.path = /usr/java/packages/lib/i386:/lib:/usr/lib
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_161-b12
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_161
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) Server VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.161-b12
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	javax.xml.datatype.DatatypeFactory = __redirected.__DatatypeFactory
+	javax.xml.parsers.DocumentBuilderFactory = __redirected.__DocumentBuilderFactory
+	javax.xml.parsers.SAXParserFactory = __redirected.__SAXParserFactory
+	javax.xml.stream.XMLEventFactory = __redirected.__XMLEventFactory
+	javax.xml.stream.XMLInputFactory = __redirected.__XMLInputFactory
+	javax.xml.stream.XMLOutputFactory = __redirected.__XMLOutputFactory
+	javax.xml.transform.TransformerFactory = __redirected.__TransformerFactory
+	javax.xml.validation.SchemaFactory:http://www.w3.org/2001/XMLSchema = __redirected.__SchemaFactory
+	javax.xml.xpath.XPathFactory:http://java.sun.com/jaxp/xpath/dom = __redirected.__XPathFactory
+	jboss.home.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final
+	jboss.host.name = osboxes
+	jboss.modules.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = osboxes
+	jboss.qualified.host.name = osboxes
+	jboss.server.base.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone
+	jboss.server.config.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration
+	jboss.server.data.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data
+	jboss.server.deploy.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/data/content
+	jboss.server.log.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log
+	jboss.server.name = osboxes
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/tmp
+	line.separator = 
+
+	logging.configuration = file:/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/logging.properties
+	module.path = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules
+	org.jboss.boot.log.file = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log/server.log
+	org.jboss.resolver.warning = true
+	org.xml.sax.driver = __redirected.__XMLReaderFactory
+	os.arch = i386
+	os.name = Linux
+	os.version = 4.13.0-36-generic
+	path.separator = :
+	sun.arch.data.model = 32
+	sun.boot.class.path = /usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes
+	sun.boot.library.path = /usr/lib/jvm/java-8-oracle/jre/lib/i386
+	sun.cpu.endian = little
+	sun.cpu.isalist = 
+	sun.desktop = gnome
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/jboss-modules.jar -mp /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/modules org.jboss.as.standalone -Djboss.home.dir=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final -Djboss.server.base.dir=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone -c standalone.xml
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = UTF-8
+	sun.management.compiler = HotSpot Tiered Compilers
+	sun.os.patch.level = unknown
+	user.country = US
+	user.dir = /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/bin
+	user.home = /home/osboxes
+	user.language = en
+	user.name = osboxes
+	user.timezone = Europe/Lisbon
+2018-03-10 11:30:05,460 DEBUG [org.jboss.as.config] (MSC service thread 1-8) VM Arguments: -D[Standalone] -Xms64m -Xmx512m -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/log/server.log -Dlogging.configuration=file:/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/logging.properties 
+2018-03-10 11:30:06,902 INFO  [org.jboss.as.controller.management-deprecated] (Controller Boot Thread) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/core-service=management/management-interface=http-interface' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2018-03-10 11:30:06,929 INFO  [org.wildfly.security] (ServerService Thread Pool -- 9) ELY00001: WildFly Elytron version 1.1.6.Final
+2018-03-10 11:30:06,950 INFO  [org.jboss.as.controller.management-deprecated] (ServerService Thread Pool -- 29) WFLYCTL0028: Attribute 'security-realm' in the resource at address '/subsystem=undertow/server=default-server/https-listener=https' is deprecated, and may be removed in future version. See the attribute description in the output of the read-resource-description operation to learn more about the deprecation.
+2018-03-10 11:30:06,966 INFO  [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0015: Re-attempting failed deployment EPELogger
+2018-03-10 11:30:06,972 ERROR [org.jboss.as.server.deployment.scanner] (DeploymentScanner-threads - 1) WFLYDS0011: The deployment scanner found a directory named META-INF that was not inside a directory whose name ends with .ear, .jar, .rar, .sar or .war. This is likely the result of unzipping an archive directly inside the /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/deployments directory, which is a user error. The META-INF directory will not be scanned for deployments, but it is possible that the scanner may find other files from the unzipped archive and attempt to deploy them, leading to errors.
+2018-03-10 11:30:07,047 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2018-03-10 11:30:07,073 INFO  [org.xnio] (MSC service thread 1-3) XNIO version 3.5.4.Final
+2018-03-10 11:30:07,094 INFO  [org.xnio.nio] (MSC service thread 1-3) XNIO NIO Implementation Version 3.5.4.Final
+2018-03-10 11:30:07,153 INFO  [org.jboss.remoting] (MSC service thread 1-3) JBoss Remoting version 5.0.5.Final
+2018-03-10 11:30:07,160 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0001: Activating Infinispan subsystem.
+2018-03-10 11:30:07,169 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 43) WFLYRS0016: RESTEasy version 3.0.24.Final
+2018-03-10 11:30:07,191 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.6.Final)
+2018-03-10 11:30:07,214 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 50) WFLYNAM0001: Activating Naming Subsystem
+2018-03-10 11:30:07,232 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 36) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2018-03-10 11:30:07,236 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 58) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2018-03-10 11:30:07,245 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-3) WFLYJCA0018: Started Driver service with driver-name = h2
+2018-03-10 11:30:07,263 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 41) WFLYIO001: Worker 'default' has auto-configured to 8 core threads with 64 task threads based on your 4 available processors
+2018-03-10 11:30:07,273 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 48) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2018-03-10 11:30:07,278 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 57) WFLYSEC0002: Activating Security Subsystem
+2018-03-10 11:30:07,278 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 60) WFLYWS0002: Activating WebServices Extension
+2018-03-10 11:30:07,289 INFO  [org.jboss.as.security] (MSC service thread 1-5) WFLYSEC0001: Current PicketBox version=5.0.2.Final
+2018-03-10 11:30:07,314 INFO  [org.jboss.as.naming] (MSC service thread 1-4) WFLYNAM0003: Starting Naming Service
+2018-03-10 11:30:07,331 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0003: Undertow 1.4.18.Final starting
+2018-03-10 11:30:07,385 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2018-03-10 11:30:07,603 INFO  [org.jboss.as.ejb3] (MSC service thread 1-3) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2018-03-10 11:30:07,604 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2018-03-10 11:30:07,752 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 59) WFLYUT0014: Creating file handler for path '/home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2018-03-10 11:30:07,755 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0012: Started server default-server.
+2018-03-10 11:30:07,782 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0018: Host default-host starting
+2018-03-10 11:30:07,847 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0493: EJB subsystem suspension complete
+2018-03-10 11:30:07,930 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-1) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2018-03-10 11:30:08,015 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2018-03-10 11:30:08,127 INFO  [org.jboss.as.patching] (MSC service thread 1-7) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2018-03-10 11:30:08,167 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-7) WFLYDM0111: Keystore /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/configuration/application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2018-03-10 11:30:08,184 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-2) WFLYDS0013: Started FileSystemDeploymentService for directory /home/osboxes/Desktop/AS/AS_TP2/wildfly-11.0.0.Final/standalone/deployments
+2018-03-10 11:30:08,184 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-4) WFLYSRV0027: Starting deployment of "EPELogger-1.0-SNAPSHOT.jar" (runtime-name: "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 11:30:08,185 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "EPELogger" (runtime-name: "EPELogger")
+2018-03-10 11:30:08,363 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2018-03-10 11:30:08,470 INFO  [org.jboss.ws.common.management] (MSC service thread 1-1) JBWS022052: Starting JBossWS 5.1.9.Final (Apache CXF 3.1.12) 
+2018-03-10 11:30:08,698 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-2) MSC000001: Failed to start service jboss.deployment.unit.EPELogger.POST_MODULE: org.jboss.msc.service.StartException in service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:172)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:2032)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1955)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:239)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.deploy(BusinessViewAnnotationProcessor.java:89)
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:165)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:412)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:400)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:237)
+	... 7 more
+
+2018-03-10 11:30:08,749 INFO  [org.jboss.weld.deployer] (MSC service thread 1-7) WFLYWELD0003: Processing weld deployment EPELogger-1.0-SNAPSHOT.jar
+2018-03-10 11:30:08,838 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-7) HV000001: Hibernate Validator 5.3.5.Final
+2018-03-10 11:30:08,955 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-7) WFLYEJB0473: JNDI bindings for session bean named 'EPELogger' in deployment unit 'deployment "EPELogger-1.0-SNAPSHOT.jar"' are as follows:
+
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:module/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:jboss/exported/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:module/EPELogger
+
+2018-03-10 11:30:09,326 INFO  [org.jboss.weld.Version] (MSC service thread 1-5) WELD-000900: 2.4.3 (Final)
+2018-03-10 11:30:09,335 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-4) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.8.Final
+2018-03-10 11:30:09,870 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 62) WFLYCLINF0002: Started client-mappings cache from ejb container
+2018-03-10 11:30:10,560 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "EPELogger")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.EPELogger.POST_MODULE" => "WFLYSRV0153: Failed to process phase POST_MODULE of deployment \"EPELogger\"
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]"}}
+2018-03-10 11:30:10,565 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "EPELogger-1.0-SNAPSHOT.jar" (runtime-name : "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-10 11:30:10,566 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "EPELogger" (runtime-name : "EPELogger")
+2018-03-10 11:30:10,568 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+
+2018-03-10 11:30:10,642 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2018-03-10 11:30:10,646 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2018-03-10 11:30:10,647 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2018-03-10 11:30:10,647 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) started (with errors) in 6077ms - Started 421 of 646 services (1 services failed or missing dependencies, 352 services are lazy, passive or on-demand)
+2018-03-11 22:48:19,760 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 58) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2018-03-11 22:48:19,861 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 41) WFLYIO001: Worker 'default' has auto-configured to 16 core threads with 128 task threads based on your 8 available processors
+2018-03-11 22:48:19,780 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 50) WFLYNAM0001: Activating Naming Subsystem
+2018-03-11 22:48:19,774 INFO  [org.jboss.as.security] (ServerService Thread Pool -- 57) WFLYSEC0002: Activating Security Subsystem
+2018-03-11 22:48:19,773 INFO  [org.jboss.as.jsf] (ServerService Thread Pool -- 48) WFLYJSF0007: Activated the following JSF Implementations: [main]
+2018-03-11 22:48:19,771 INFO  [org.jboss.as.webservices] (ServerService Thread Pool -- 60) WFLYWS0002: Activating WebServices Extension
+2018-03-11 22:48:19,764 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 43) WFLYRS0016: RESTEasy version 3.0.24.Final
+2018-03-11 22:48:20,228 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 42) WFLYCLINF0001: Activating Infinispan subsystem.
+2018-03-11 22:48:20,091 INFO  [org.jboss.remoting] (MSC service thread 1-8) JBoss Remoting version 5.0.5.Final
+2018-03-11 22:48:20,544 INFO  [org.jboss.as.security] (MSC service thread 1-7) WFLYSEC0001: Current PicketBox version=5.0.2.Final
+2018-03-11 22:48:20,571 INFO  [org.jboss.as.connector] (MSC service thread 1-4) WFLYJCA0009: Starting JCA Subsystem (WildFly/IronJacamar 1.4.6.Final)
+2018-03-11 22:48:20,645 INFO  [org.jboss.as.naming] (MSC service thread 1-2) WFLYNAM0003: Starting Naming Service
+2018-03-11 22:48:20,647 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-2) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2018-03-11 22:48:20,653 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 36) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2018-03-11 22:48:21,020 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-6) WFLYJCA0018: Started Driver service with driver-name = h2
+2018-03-11 22:48:21,381 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0003: Undertow 1.4.18.Final starting
+2018-03-11 22:48:21,991 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0493: EJB subsystem suspension complete
+2018-03-11 22:48:22,374 INFO  [org.jboss.as.ejb3] (MSC service thread 1-7) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 128 (per class), which is derived from thread worker pool sizing.
+2018-03-11 22:48:22,375 INFO  [org.jboss.as.ejb3] (MSC service thread 1-2) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 32 (per class), which is derived from the number of CPUs on this host.
+2018-03-11 22:48:23,006 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-5) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2018-03-11 22:48:23,329 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 59) WFLYUT0014: Creating file handler for path 'D:\André\UC\2º Semestre\Arquitetura de Software\Material Prático\AS_TP2\wildfly-11.0.0.Final/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2018-03-11 22:48:23,507 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-2) WFLYUT0012: Started server default-server.
+2018-03-11 22:48:23,522 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0018: Host default-host starting
+2018-03-11 22:48:23,684 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-8) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8080
+2018-03-11 22:48:25,845 INFO  [org.jboss.as.patching] (MSC service thread 1-7) WFLYPAT0050: WildFly Full cumulative patch ID is: base, one-off patches include: none
+2018-03-11 22:48:25,881 WARN  [org.jboss.as.domain.management.security] (MSC service thread 1-3) WFLYDM0111: Keystore D:\André\UC\2º Semestre\Arquitetura de Software\Material Prático\AS_TP2\wildfly-11.0.0.Final\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self signed certificate for host localhost
+2018-03-11 22:48:25,886 INFO  [org.jboss.as.server.deployment.scanner] (MSC service thread 1-4) WFLYDS0013: Started FileSystemDeploymentService for directory D:\André\UC\2º Semestre\Arquitetura de Software\Material Prático\AS_TP2\wildfly-11.0.0.Final\standalone\deployments
+2018-03-11 22:48:25,981 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "EPELogger-1.0-SNAPSHOT.jar" (runtime-name: "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-11 22:48:25,981 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-1) WFLYSRV0027: Starting deployment of "EPELogger" (runtime-name: "EPELogger")
+2018-03-11 22:48:26,321 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-7) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2018-03-11 22:48:27,177 INFO  [org.jboss.ws.common.management] (MSC service thread 1-2) JBWS022052: Starting JBossWS 5.1.9.Final (Apache CXF 3.1.12) 
+2018-03-11 22:48:28,410 ERROR [org.jboss.msc.service.fail] (MSC service thread 1-4) MSC000001: Failed to start service jboss.deployment.unit.EPELogger.POST_MODULE: org.jboss.msc.service.StartException in service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:172)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.startService(ServiceControllerImpl.java:2032)
+	at org.jboss.msc.service.ServiceControllerImpl$StartTask.run(ServiceControllerImpl.java:1955)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:239)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.deploy(BusinessViewAnnotationProcessor.java:89)
+	at org.jboss.as.server.deployment.DeploymentUnitPhaseService.start(DeploymentUnitPhaseService.java:165)
+	... 5 more
+Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module "deployment.EPELogger" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:412)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:400)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	at org.jboss.as.ejb3.deployment.processors.BusinessViewAnnotationProcessor.getEjbClass(BusinessViewAnnotationProcessor.java:237)
+	... 7 more
+
+2018-03-11 22:48:28,495 INFO  [org.jboss.weld.deployer] (MSC service thread 1-1) WFLYWELD0003: Processing weld deployment EPELogger-1.0-SNAPSHOT.jar
+2018-03-11 22:48:28,755 INFO  [org.hibernate.validator.internal.util.Version] (MSC service thread 1-1) HV000001: Hibernate Validator 5.3.5.Final
+2018-03-11 22:48:28,927 INFO  [org.jboss.as.ejb3.deployment] (MSC service thread 1-1) WFLYEJB0473: JNDI bindings for session bean named 'EPELogger' in deployment unit 'deployment "EPELogger-1.0-SNAPSHOT.jar"' are as follows:
+
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:module/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:jboss/exported/EPELogger-1.0-SNAPSHOT/EPELogger!pt.uc.dei.as.loggerbeans.IEPELogger
+	java:global/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:app/EPELogger-1.0-SNAPSHOT/EPELogger
+	java:module/EPELogger
+
+2018-03-11 22:48:29,460 INFO  [org.jboss.weld.Version] (MSC service thread 1-1) WELD-000900: 2.4.3 (Final)
+2018-03-11 22:48:29,824 INFO  [org.infinispan.factories.GlobalComponentRegistry] (MSC service thread 1-4) ISPN000128: Infinispan version: Infinispan 'Chakra' 8.2.8.Final
+2018-03-11 22:48:30,568 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 63) WFLYCLINF0002: Started client-mappings cache from ejb container
+2018-03-11 22:48:31,162 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "EPELogger")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.deployment.unit.EPELogger.POST_MODULE" => "WFLYSRV0153: Failed to process phase POST_MODULE of deployment \"EPELogger\"
+    Caused by: org.jboss.as.server.deployment.DeploymentUnitProcessingException: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]
+    Caused by: java.lang.ClassNotFoundException: pt.uc.dei.as.loggerbeans.EPELogger from [Module \"deployment.EPELogger\" from Service Module Loader]"}}
+2018-03-11 22:48:31,183 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "EPELogger" (runtime-name : "EPELogger")
+2018-03-11 22:48:31,183 INFO  [org.jboss.as.server] (ServerService Thread Pool -- 37) WFLYSRV0010: Deployed "EPELogger-1.0-SNAPSHOT.jar" (runtime-name : "EPELogger-1.0-SNAPSHOT.jar")
+2018-03-11 22:48:31,186 INFO  [org.jboss.as.controller] (Controller Boot Thread) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+
+2018-03-11 22:48:31,271 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0212: Resuming server
+2018-03-11 22:48:31,274 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0060: Http management interface listening on http://127.0.0.1:9990/management
+2018-03-11 22:48:31,274 INFO  [org.jboss.as] (Controller Boot Thread) WFLYSRV0051: Admin console listening on http://127.0.0.1:9990
+2018-03-11 22:48:31,278 ERROR [org.jboss.as] (Controller Boot Thread) WFLYSRV0026: WildFly Full 11.0.0.Final (WildFly Core 3.0.8.Final) started (with errors) in 22126ms - Started 421 of 646 services (1 services failed or missing dependencies, 352 services are lazy, passive or on-demand)
+2018-03-11 22:55:34,746 INFO  [org.jboss.as.repository] (management-handler-thread - 3) WFLYDR0001: Content added at location D:\André\UC\2º Semestre\Arquitetura de Software\Material Prático\AS_TP2\wildfly-11.0.0.Final\standalone\data\content\2e\40f0b76c06d8cdd3f876055b81c7724266ddde\content
+2018-03-11 22:55:34,752 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-5) WFLYSRV0027: Starting deployment of "RESTfulWS-1.0-SNAPSHOT.jar" (runtime-name: "RESTfulWS-1.0-SNAPSHOT.jar")
+2018-03-11 22:55:34,916 INFO  [org.jboss.as.jpa] (MSC service thread 1-1) WFLYJPA0002: Read persistence.xml for RESTfulWS
+2018-03-11 22:55:35,038 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 27) WFLYJPA0010: Starting Persistence Unit (phase 1 of 2) Service 'RESTfulWS-1.0-SNAPSHOT.jar#RESTfulWS'
+2018-03-11 22:55:35,103 INFO  [org.hibernate.jpa.internal.util.LogHelper] (ServerService Thread Pool -- 27) HHH000204: Processing PersistenceUnitInfo [
+	name: RESTfulWS
+	...]
+2018-03-11 22:55:35,314 INFO  [org.hibernate.Version] (ServerService Thread Pool -- 27) HHH000412: Hibernate Core {5.1.10.Final}
+2018-03-11 22:55:35,316 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 27) HHH000206: hibernate.properties not found
+2018-03-11 22:55:35,319 INFO  [org.hibernate.cfg.Environment] (ServerService Thread Pool -- 27) HHH000021: Bytecode provider name : javassist
+2018-03-11 22:55:35,429 INFO  [org.hibernate.annotations.common.Version] (ServerService Thread Pool -- 27) HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2018-03-11 22:55:35,521 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 27) WFLYJPA0010: Starting Persistence Unit (phase 2 of 2) Service 'RESTfulWS-1.0-SNAPSHOT.jar#RESTfulWS'
+2018-03-11 22:55:35,951 INFO  [org.hibernate.dialect.Dialect] (ServerService Thread Pool -- 27) HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-03-11 22:55:35,957 WARN  [org.hibernate.dialect.H2Dialect] (ServerService Thread Pool -- 27) HHH000431: Unable to determine H2 database version, certain features may not work
+2018-03-11 22:55:36,497 INFO  [org.hibernate.envers.boot.internal.EnversServiceImpl] (ServerService Thread Pool -- 27) Envers integration enabled? : true
+2018-03-11 22:55:36,741 ERROR [org.jboss.msc.service.fail] (ServerService Thread Pool -- 27) MSC000001: Failed to start service jboss.persistenceunit."RESTfulWS-1.0-SNAPSHOT.jar#RESTfulWS": org.jboss.msc.service.StartException in service jboss.persistenceunit."RESTfulWS-1.0-SNAPSHOT.jar#RESTfulWS": org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [entity.Product]
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:195)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:125)
+	at org.wildfly.security.manager.WildFlySecurityManager.doChecked(WildFlySecurityManager.java:640)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1.run(PersistenceUnitServiceImpl.java:209)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:320)
+Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [entity.Product]
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:232)
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.<init>(AnnotationMetadataSourceProcessorImpl.java:103)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.<init>(MetadataBuildingProcess.java:147)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:141)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:848)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:875)
+	at org.jboss.as.jpa.hibernate5.TwoPhaseBootstrapImpl.build(TwoPhaseBootstrapImpl.java:44)
+	at org.jboss.as.jpa.service.PersistenceUnitServiceImpl$1$1.run(PersistenceUnitServiceImpl.java:167)
+	... 7 more
+Caused by: java.lang.NoClassDefFoundError: javafx/beans/property/StringProperty
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Class.java:348)
+	at org.hibernate.boot.registry.classloading.internal.ClassLoaderServiceImpl.classForName(ClassLoaderServiceImpl.java:226)
+	... 14 more
+Caused by: java.lang.ClassNotFoundException: javafx.beans.property.StringProperty from [Module "deployment.RESTfulWS-1.0-SNAPSHOT.jar" from Service Module Loader]
+	at org.jboss.modules.ModuleClassLoader.findClass(ModuleClassLoader.java:198)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClassUnchecked(ConcurrentClassLoader.java:412)
+	at org.jboss.modules.ConcurrentClassLoader.performLoadClass(ConcurrentClassLoader.java:400)
+	at org.jboss.modules.ConcurrentClassLoader.loadClass(ConcurrentClassLoader.java:116)
+	... 17 more
+
+2018-03-11 22:55:36,745 ERROR [org.jboss.as.controller.management-operation] (management-handler-thread - 3) WFLYCTL0013: Operation ("deploy") failed - address: ([("deployment" => "RESTfulWS-1.0-SNAPSHOT.jar")]) - failure description: {"WFLYCTL0080: Failed services" => {"jboss.persistenceunit.\"RESTfulWS-1.0-SNAPSHOT.jar#RESTfulWS\"" => "org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [entity.Product]
+    Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [entity.Product]
+    Caused by: java.lang.NoClassDefFoundError: javafx/beans/property/StringProperty
+    Caused by: java.lang.ClassNotFoundException: javafx.beans.property.StringProperty from [Module \"deployment.RESTfulWS-1.0-SNAPSHOT.jar\" from Service Module Loader]"}}
+2018-03-11 22:55:36,748 ERROR [org.jboss.as.server] (management-handler-thread - 3) WFLYSRV0021: Deploy of deployment "RESTfulWS-1.0-SNAPSHOT.jar" was rolled back with the following failure message: 
+{"WFLYCTL0080: Failed services" => {"jboss.persistenceunit.\"RESTfulWS-1.0-SNAPSHOT.jar#RESTfulWS\"" => "org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [entity.Product]
+    Caused by: org.hibernate.boot.registry.classloading.spi.ClassLoadingException: Unable to load class [entity.Product]
+    Caused by: java.lang.NoClassDefFoundError: javafx/beans/property/StringProperty
+    Caused by: java.lang.ClassNotFoundException: javafx.beans.property.StringProperty from [Module \"deployment.RESTfulWS-1.0-SNAPSHOT.jar\" from Service Module Loader]"}}
+2018-03-11 22:55:36,765 INFO  [org.jboss.as.jpa] (ServerService Thread Pool -- 27) WFLYJPA0011: Stopping Persistence Unit (phase 1 of 2) Service 'RESTfulWS-1.0-SNAPSHOT.jar#RESTfulWS'
+2018-03-11 22:55:36,857 INFO  [org.jboss.as.server.deployment] (MSC service thread 1-7) WFLYSRV0028: Stopped deployment RESTfulWS-1.0-SNAPSHOT.jar (runtime-name: RESTfulWS-1.0-SNAPSHOT.jar) in 108ms
+2018-03-11 22:55:36,859 INFO  [org.jboss.as.controller] (management-handler-thread - 3) WFLYCTL0183: Service status report
+WFLYCTL0186:   Services which failed to start:      service jboss.deployment.unit.EPELogger.POST_MODULE: WFLYSRV0153: Failed to process phase POST_MODULE of deployment "EPELogger"
+
