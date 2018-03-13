@@ -6,6 +6,8 @@
  */
 package entity;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -20,10 +22,12 @@ import java.util.List;
 public class Product_Type implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Expose
 	@Id
 	@Column(unique = true, nullable = false)
 	private int idProduct_Types;
 
+	@Expose
 	@Column(nullable = false, length = 45)
 	private String product_Types_Code;
 

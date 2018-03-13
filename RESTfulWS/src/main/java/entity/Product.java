@@ -6,8 +6,7 @@
  */
 package entity;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import com.google.gson.annotations.Expose;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,19 +28,24 @@ import java.util.List;
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Expose
 	@Id
 	@Column(unique = true, nullable = false)
 	private int idProducts;
 
+	@Expose
 	@Column(nullable = false, length = 45)
 	private String products_Code;
 
+	@Expose
 	@Column(nullable = false, length = 250)
 	private String products_Description;
 
+	@Expose
 	@Column(nullable = false, precision = 10)
 	private BigDecimal products_Price;
 
+	@Expose
 	@Column(nullable = false)
 	private int products_Stock;
 
@@ -50,6 +54,7 @@ public class Product implements Serializable {
 	private List<Item> items;
 
 	// bi-directional many-to-one association to Product_Type
+	@Expose
 	@ManyToOne
 	@JoinColumn(name = "Product_Types_idProduct_Types", nullable = false)
 	private Product_Type productType;
@@ -61,8 +66,8 @@ public class Product implements Serializable {
 		return this.idProducts;
 	}
 
-	public StringProperty idProductsProperty() {
-		return new SimpleStringProperty(Integer.toString(this.idProducts));
+	public String idProductsProperty() {
+		return new String(Integer.toString(this.idProducts));
 	}
 
 	public void setIdProducts(int idProducts) {
@@ -73,8 +78,8 @@ public class Product implements Serializable {
 		return this.products_Code;
 	}
 
-	public StringProperty products_CodeProperty() {
-		return new SimpleStringProperty(this.products_Code);
+	public String products_CodeProperty() {
+		return new String(this.products_Code);
 	}
 
 	public void setProducts_Code(String products_Code) {
@@ -85,8 +90,8 @@ public class Product implements Serializable {
 		return this.products_Description;
 	}
 
-	public StringProperty products_DescriptionProperty() {
-		return new SimpleStringProperty(this.products_Description);
+	public String products_DescriptionProperty() {
+		return new String(this.products_Description);
 	}
 
 	public void setProducts_Description(String products_Description) {
@@ -97,8 +102,8 @@ public class Product implements Serializable {
 		return this.products_Price;
 	}
 
-	public StringProperty products_PriceProperty() {
-		return new SimpleStringProperty(this.products_Price.toString());
+	public String products_PriceProperty() {
+		return new String(this.products_Price.toString());
 	}
 
 	public void setProducts_Price(BigDecimal products_Price) {
@@ -109,8 +114,8 @@ public class Product implements Serializable {
 		return this.products_Stock;
 	}
 
-	public StringProperty products_StockProperty() {
-		return new SimpleStringProperty(Integer.toString(this.products_Stock));
+	public String products_StockProperty() {
+		return new String(Integer.toString(this.products_Stock));
 	}
 
 	public void setProducts_Stock(int products_Stock) {

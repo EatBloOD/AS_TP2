@@ -6,8 +6,7 @@
  */
 package entity;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import com.google.gson.annotations.Expose;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -23,12 +22,15 @@ import java.math.BigDecimal;
 public class Item implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Expose
 	@EmbeddedId
 	private ItemPK id;
 
+	@Expose
 	@Column(nullable = false, length = 45)
 	private int items_Quantity;
 
+	@Expose
 	@Column(nullable = false, precision = 10)
 	private BigDecimal items_Unit_Price;
 
@@ -38,6 +40,7 @@ public class Item implements Serializable {
 	private Order order;
 
 	// bi-directional many-to-one association to Product
+	@Expose
 	@ManyToOne
 	@JoinColumn(name = "Products_idProducts", nullable = false, insertable = false, updatable = false)
 	private Product product;
@@ -74,8 +77,8 @@ public class Item implements Serializable {
 		return this.items_Quantity;
 	}
 
-	public StringProperty items_QuantityProperty() {
-		return new SimpleStringProperty(this.items_Quantity + "");
+	public String items_QuantityProperty() {
+		return new String(this.items_Quantity + "");
 	}
 
 	public void setItems_Quantity(int items_Quantity) {
@@ -86,8 +89,8 @@ public class Item implements Serializable {
 		return this.items_Unit_Price;
 	}
 
-	public StringProperty items_Unit_PriceProperty() {
-		return new SimpleStringProperty(this.items_Unit_Price.toString());
+	public String items_Unit_PriceProperty() {
+		return new String(this.items_Unit_Price.toString());
 	}
 
 	public void setItems_Unit_Price(BigDecimal items_Unit_Price) {

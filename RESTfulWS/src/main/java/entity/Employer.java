@@ -8,16 +8,14 @@ package entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * The persistent class for the Clients database table.
- *
  */
 @Entity
 @Table(name = "Employers")
-@NamedQueries({ @NamedQuery(name = "Employers.findAll", query = "SELECT e FROM Employer e"),
-        @NamedQuery(name = "Employers.findEmployer", query = "SELECT e FROM Employer AS e where e.employers_Name = :employers_Name"), })
+@NamedQueries({@NamedQuery(name = "Employers.findAll", query = "SELECT e FROM Employer e"),
+        @NamedQuery(name = "Employers.findEmployer", query = "SELECT e FROM Employer AS e where e.employers_Name = :employers_Name"),})
 public class Employer implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -41,14 +39,14 @@ public class Employer implements Serializable {
     @Column(nullable = false, length = 100)
     private String employers_Password;
 
-    // bi-directional many-to-one association to Order
+    /*// bi-directional many-to-one association to Order
     @OneToMany(mappedBy = "employe")
-    private List<Order> orders;
+    private List<Order> orders;*/
 
     public Employer() {
     }
 
-    public Employer(String name, String email, String password, String location, String phone){
+    public Employer(String name, String email, String password, String location, String phone) {
         this.employers_Name = name;
         this.employers_Email = email;
         this.employers_Location = location;
@@ -64,7 +62,7 @@ public class Employer implements Serializable {
                 ", employers_Email='" + employers_Email + '\'' +
                 ", employers_Name='" + employers_Name + '\'' +
                 ", employers_Telephone='" + employers_Telephone + '\'' +
-                ", orders=" + orders +
+                //", orders=" + orders +
                 '}';
     }
 
@@ -112,15 +110,17 @@ public class Employer implements Serializable {
         this.employers_Telephone = employers_Telephone;
     }
 
+    /*
     public List<Order> getOrders() {
-        return this.orders;
-    }
+         return this.orders;
+     }
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
+     public void setOrders(List<Order> orders) {
+         this.orders = orders;
+     }
+    */
 
-    public Order addOrder(Order order) {
+    /*public Order addOrder(Order order) {
         getOrders().add(order);
         //order.setClient(this);
 
@@ -132,7 +132,19 @@ public class Employer implements Serializable {
         order.setClient(null);
 
         return order;
+    }*//*public Order addOrder(Order order) {
+        getOrders().add(order);
+        //order.setClient(this);
+
+        return order;
     }
+
+    public Order removeOrder(Order order) {
+        getOrders().remove(order);
+        order.setClient(null);
+
+        return order;
+    }*/
 
     public String getEmployers_Password() {
         return employers_Password;

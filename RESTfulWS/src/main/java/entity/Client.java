@@ -6,8 +6,7 @@
  */
 package entity;
 
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import com.google.gson.annotations.Expose;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -24,20 +23,25 @@ import java.util.List;
 public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false)
 	private int idClients;
 
+	@Expose
 	@Column(nullable = false, length = 250)
 	private String clients_Address;
 
+	@Expose
 	@Column(nullable = false, length = 100)
 	private String clients_Email;
 
+	@Expose
 	@Column(nullable = false, length = 45)
 	private String clients_Name;
 
+	@Expose
 	@Column(nullable = false, length = 15)
 	private String clients_Telephone;
 
@@ -60,8 +64,8 @@ public class Client implements Serializable {
 		return this.clients_Address;
 	}
 
-	public StringProperty clients_AddressProperty() {
-		return new SimpleStringProperty(this.clients_Address);
+	public String clients_AddressProperty() {
+		return new String(this.clients_Address);
 	}
 
 	public void setClients_Address(String clients_Address) {
@@ -72,8 +76,8 @@ public class Client implements Serializable {
 		return this.clients_Email;
 	}
 
-	public StringProperty clients_EmailProperty() {
-		return new SimpleStringProperty(this.clients_Email);
+	public String clients_EmailProperty() {
+		return new String(this.clients_Email);
 	}
 
 	public void setClients_Email(String clients_Email) {
@@ -84,8 +88,8 @@ public class Client implements Serializable {
 		return this.clients_Name;
 	}
 
-	public StringProperty clients_NameProperty() {
-		return new SimpleStringProperty(this.clients_Name);
+	public String clients_NameProperty() {
+		return new String(this.clients_Name);
 	}
 
 	public void setClients_Name(String clients_Name) {
@@ -96,8 +100,8 @@ public class Client implements Serializable {
 		return this.clients_Telephone;
 	}
 
-	public StringProperty clients_TelephoneProperty() {
-		return new SimpleStringProperty(this.clients_Telephone);
+	public String clients_TelephoneProperty() {
+		return new String(this.clients_Telephone);
 	}
 
 	public void setClients_Telephone(String clients_Telephone) {
