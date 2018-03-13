@@ -1,0 +1,4 @@
+To deploy RESTfulWS, execute the following command:
+mvn clean package wildfly:deploy -X
+
+* note: Make sure that you have wildfly and mysql running.

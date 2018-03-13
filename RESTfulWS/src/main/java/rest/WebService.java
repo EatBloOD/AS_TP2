@@ -1,14 +1,10 @@
 package rest;
 
 import javax.persistence.EntityManager;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
+import javax.ws.rs.GET;
 import javax.ws.rs.Path;
-import javax.ws.rs.core.Response;
-import rest.PersistenceManager;
 
-
-
+@Path("/1.0")
 public class WebService {
     // TODO: Implementar o web service GET && POST (Login + Orders)
     //
@@ -17,29 +13,27 @@ public class WebService {
     //
     // ORDERS:
     // Averiguar de que order se trata e fazer o devido Log
-	
-	private EntityManager em;
+
+    private EntityManager em;
 
     /*@EJB
     IEPELogger remoteLoggingEJB;
 	*/
-	
-    public WebService()
-    {
+
+    public WebService() {
         PersistenceManager pm = new PersistenceManager();
         em = pm.getEntityManager();
 
         System.out.println("WebService created");
     }
-    
-    @POST
-    @Path("/helloWorld")
-    @Consumes("application/json")
-    public Response helloWorld()
-    {
-    	
-        return Response.status(401).build();
-    } 
 
-	 
+    /*
+     *  This method is only for testing purposes
+     * url: http://localhost:8080/RESTfulWS/rest/1.0/helloWorld
+     * */
+    @GET
+    @Path("/helloWorld")
+    public String helloWorld() {
+        return "<h1>Hello World</h1>";
+    }
 }
