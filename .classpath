@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="EPELogger/src/main/java"/>
+	<classpathentry kind="src" path="InventoryAppFX/src/main/java"/>
+	<classpathentry kind="src" path="OrderAppFX/src/main/java"/>
+	<classpathentry kind="src" path="RESTfulWS/src/main/java"/>
+	<classpathentry kind="src" path="ShippingAppFX/src/main/java"/>
+	<classpathentry kind="src" path="wildfly-11.0.0.Final/standalone/deployments/EPELogger/src/main/java"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
+		<attributes>
+			<attribute name="owner.project.facets" value="java"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="C:/Users/macun/OneDrive/OneDrive - Universidade de Coimbra/Universidade/5 Ano/AS/TP2/AS_TP2/wildfly-11.0.0.Final/bin/client/jboss-cli-client.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

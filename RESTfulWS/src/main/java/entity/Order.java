@@ -6,11 +6,12 @@
  */
 package entity;
 
+import java.io.Serializable;
+import javax.persistence.*;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -70,10 +71,10 @@ public class Order implements Serializable {
 		return this.orders_Date;
 	}
 
-	public StringProperty orders_DateProperty() {
+	public String orders_DateProperty() {
 		SimpleDateFormat format1 = new SimpleDateFormat("dd-MM-yyyy");
 		String date1 = format1.format(this.orders_Date);
-		return new SimpleStringProperty(date1);
+		return new String(date1);
 	}
 
 	public void setOrders_Date(Date orders_Date) {
@@ -84,10 +85,10 @@ public class Order implements Serializable {
 		return this.orders_Shipped;
 	}
 
-	public StringProperty orders_ShippedProperty() {
+	public String orders_ShippedProperty() {
 		if (orders_Shipped != 0)
-			return new SimpleStringProperty("Yes");
-		return new SimpleStringProperty("No");
+			return new String("Yes");
+		return new String("No");
 	}
 
 	public void setOrders_Shipped(byte orders_Shipped) {
@@ -98,8 +99,8 @@ public class Order implements Serializable {
 		return this.orders_Total_Cost;
 	}
 
-	public StringProperty orders_Total_CostProperty() {
-		return new SimpleStringProperty(this.orders_Total_Cost.toString());
+	public String orders_Total_CostProperty() {
+		return new String(this.orders_Total_Cost.toString());
 	}
 
 	public void setOrders_Total_Cost(BigDecimal orders_Total_Cost) {
