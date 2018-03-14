@@ -10,28 +10,24 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import pt.uc.dei.as.controller.LoginController;
-import pt.uc.dei.as.controller.OrderEditorController;
-import pt.uc.dei.as.controller.OrderOverviewController;
-import pt.uc.dei.as.entity.Client;
-import pt.uc.dei.as.entity.Employer;
-import pt.uc.dei.as.entity.Order;
-
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.util.List;
-
-import javax.persistence.EntityManager;
-
-import com.google.gson.reflect.TypeToken;
-
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import pt.uc.dei.as.controller.LoginController;
+import pt.uc.dei.as.controller.OrderEditorController;
+import pt.uc.dei.as.controller.OrderOverviewController;
+import pt.uc.dei.as.data.Login;
+import pt.uc.dei.as.entity.Employer;
+import pt.uc.dei.as.entity.Order;
+
+import javax.persistence.EntityManager;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.util.List;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -127,9 +123,17 @@ public class MainApp extends Application {
 	 */
 	@Override
 	public void stop() throws Exception {
-		super.stop();
-		Platform.exit();
-		System.exit(0);
+		try {
+			Login login = new Login();
+			login.setPassword(employer.getEmployers_Password());
+			login.setUSername(employer.getEmployers_Name());
+			Employer e = RestsUtils.doPost("logout", login, Employer.class, HttpURLConnection.HTTP_OK);
+			super.stop();
+			Platform.exit();
+			System.exit(0);
+		}catch (RuntimeException ex){
+			System.out.println("Erro no registo do logout no servidor!");
+		}
 	}
 
 	/**
