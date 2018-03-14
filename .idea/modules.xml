@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/InventoryAppFX/InventoryAppFX.iml" filepath="$PROJECT_DIR$/InventoryAppFX/InventoryAppFX.iml" />
       <module fileurl="file://$PROJECT_DIR$/OrderAppFX/OrderAppFX.iml" filepath="$PROJECT_DIR$/OrderAppFX/OrderAppFX.iml" />
       <module fileurl="file://$PROJECT_DIR$/RESTfulWS/RESTfulWS.iml" filepath="$PROJECT_DIR$/RESTfulWS/RESTfulWS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RESTfulWS/RESTfulWS.iml" filepath="$PROJECT_DIR$/RESTfulWS/RESTfulWS.iml" />
       <module fileurl="file://$PROJECT_DIR$/ShippingAppFX/ShippingAppFX.iml" filepath="$PROJECT_DIR$/ShippingAppFX/ShippingAppFX.iml" />
     </modules>
   </component>

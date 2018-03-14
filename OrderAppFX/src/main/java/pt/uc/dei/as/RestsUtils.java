@@ -1,13 +1,14 @@
 package pt.uc.dei.as;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
-import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
 
 public class RestsUtils
 {
@@ -38,7 +39,7 @@ public class RestsUtils
         BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
 
         Gson gson1 = new GsonBuilder().create();
-        
+
         T returnedObject = gson1.fromJson(br, type);
 
         conn.disconnect();

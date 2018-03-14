@@ -22,16 +22,16 @@ import javax.persistence.Table;
 import com.google.gson.annotations.Expose;
 
 /**
- * The persistent class for the Clients database table.
- *
+ * The persistent class for the Employer database table.
  */
 @Entity
 @Table(name = "Employers")
-@NamedQueries({ @NamedQuery(name = "Employers.findAll", query = "SELECT e FROM Employer e"),
-        @NamedQuery(name = "Employers.findEmployer", query = "SELECT e FROM Employer AS e where e.employers_Name = :employers_Name"), })
+@NamedQueries({@NamedQuery(name = "Employers.findAll", query = "SELECT e FROM Employer e"),
+        @NamedQuery(name = "Employers.findEmployer", query = "SELECT e FROM Employer AS e where e.employers_Name = :employers_Name"),})
 public class Employer implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @Expose
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
@@ -65,7 +65,7 @@ public class Employer implements Serializable {
     public Employer() {
     }
 
-    public Employer(String name, String email, String password, String location, String phone){
+    public Employer(String name, String email, String password, String location, String phone) {
         this.employers_Name = name;
         this.employers_Email = email;
         this.employers_Location = location;

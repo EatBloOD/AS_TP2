@@ -17,7 +17,7 @@ import entity.*;
 
 @Path("/1.0")
 public class WebService {
-    
+
     private EntityManager em;
 
     @EJB
@@ -59,8 +59,6 @@ public class WebService {
                 e.setEmployers_Password(null);
 
                 String json = gson.toJson(e);
-
-                System.out.println(json);
                 
                 remoteEPELogger.loginInfo(e.getEmployers_Name(), 0);
 
@@ -77,10 +75,36 @@ public class WebService {
     }
 
     @POST
+    @Path("/logout")
+    @Consumes("application/json")
+    public Response Logout(Login login) {
+
+        TypedQuery<Employer> queryC = em.createNamedQuery("Employers.findEmployer", Employer.class);
+        Employer e;
+        queryC.setParameter("employers_Name", login.getUsername());
+
+        try {
+            e = queryC.getSingleResult();
+
+            Gson gson = new Gson();
+
+            String json = gson.toJson(e);
+
+            remoteEPELogger.loginInfo(e.getEmployers_Name(), 1);
+
+            return Response.ok(json, MediaType.APPLICATION_JSON).build();
+
+        } catch (NoResultException nre) {
+
+            return Response.status(404).build();
+        }
+    }
+
+    @POST
     @Path("newOrder")
     @Consumes("application/json")
     public Response newOrder(Order newOrder){
-        
+
         remoteEPELogger.orderInfo(newOrder.getEmploye().getEmployers_Name(), newOrder.getIdOrders());
 
         return Response.ok().build();
@@ -92,10 +116,10 @@ public class WebService {
     @Consumes("application/json")
     public Response orderShipped(Order order){
         remoteEPELogger.shippingInfo(order.getIdOrders(), ((Byte) order.getOrders_Shipped()).intValue());
-        
+
         return Response.ok().build();
     }
 
-    
+
 
 }
