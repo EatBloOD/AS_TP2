@@ -6,6 +6,8 @@
  */
 package entity;
 
+import com.google.gson.annotations.Expose;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
@@ -20,26 +22,33 @@ import java.util.List;
 public class Employer implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @Expose
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private int idEmployers;
 
+    @Expose
     @Column(nullable = false, length = 250)
     private String employers_Location;
 
+    @Expose
     @Column(nullable = false, length = 100)
     private String employers_Email;
 
+    @Expose
     @Column(nullable = false, length = 45)
     private String employers_Name;
 
+    @Expose
     @Column(nullable = false, length = 15)
     private String employers_Telephone;
 
+    @Expose
     @Column(nullable = false, length = 100)
     private String employers_Password;
 
+    @Expose
     // bi-directional many-to-one association to Order
     @OneToMany(mappedBy = "employe")
     private List<Order> orders;
