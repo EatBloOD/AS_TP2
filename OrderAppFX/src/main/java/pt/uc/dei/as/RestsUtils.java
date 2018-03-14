@@ -37,7 +37,9 @@ public class RestsUtils
 
         BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
 
-        T returnedObject = gson.fromJson(br, type);
+        Gson gson1 = new GsonBuilder().create();
+        
+        T returnedObject = gson1.fromJson(br, type);
 
         conn.disconnect();
 

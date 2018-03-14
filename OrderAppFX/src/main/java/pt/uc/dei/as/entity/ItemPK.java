@@ -9,6 +9,8 @@ package pt.uc.dei.as.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.google.gson.annotations.Expose;
+
 /**
  * The primary key class for the Items database table.
  * 
@@ -18,9 +20,11 @@ public class ItemPK implements Serializable {
 	// default serial version id, required for serializable classes.
 	private static final long serialVersionUID = 1L;
 
+	@Expose
 	@Column(insertable = false, updatable = false, unique = true, nullable = false)
 	private int orders_idOrders;
 
+	@Expose
 	@Column(insertable = false, updatable = false, unique = true, nullable = false)
 	private int products_idProducts;
 

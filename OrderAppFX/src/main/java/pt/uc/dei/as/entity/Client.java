@@ -9,6 +9,8 @@ package pt.uc.dei.as.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.google.gson.annotations.Expose;
+
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -25,24 +27,30 @@ import java.util.List;
 public class Client implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Expose
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(unique = true, nullable = false)
 	private int idClients;
 
+	@Expose
 	@Column(nullable = false, length = 250)
 	private String clients_Address;
 
+	@Expose
 	@Column(nullable = false, length = 100)
 	private String clients_Email;
 
+	@Expose
 	@Column(nullable = false, length = 45)
 	private String clients_Name;
 
+	@Expose
 	@Column(nullable = false, length = 15)
 	private String clients_Telephone;
 
 	// bi-directional many-to-one association to Order
+	@Expose
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders;
 

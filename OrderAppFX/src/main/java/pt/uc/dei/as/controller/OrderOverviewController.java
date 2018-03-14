@@ -6,10 +6,14 @@
  */
 package pt.uc.dei.as.controller;
 
+import com.google.gson.Gson;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+
+import pt.uc.dei.as.RestsUtils;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -180,25 +184,16 @@ public class OrderOverviewController {
 		for (Item i : newOrder.getItems()) {
 			i.getId().setOrders_idOrders(newOrder.getIdOrders());
 		}
-
+		
 		newOrder.setEmploye(MainApp.getEmployer());
 
 
 		if (saveClicked) {
 
 			try {
-				MainApp.em.getTransaction().begin();
-				MainApp.em.persist(newOrder.getClient());
-				MainApp.em.persist(newOrder);
 
-				for (Item i : newOrder.getItems()) {
-					i.setOrder(newOrder);
-					i.getId().setOrders_idOrders(newOrder.getIdOrders());
-					i.getProduct().setProducts_Stock(i.getProduct().getProducts_Stock() + i.getQuantityVariation());
-				}
+				RestsUtils.doPost("newOrder", newOrder, Order.class, HttpURLConnection.HTTP_OK);
 
-				MainApp.em.merge(newOrder);
-				MainApp.em.getTransaction().commit();
 			} catch (Exception e) {
 				AlertUtil.alert("Could not complete the operation", "Something is wrong!", "Try again or restart the application");
 				handleRefresh();
@@ -330,8 +325,10 @@ public class OrderOverviewController {
 	private void handleRefresh() {
 		try {
 			MainApp.refreshEm();
-			TypedQuery<Order> query = MainApp.em.createNamedQuery("Order.findAll", Order.class);
-			mainApp.setOrdersData(query.getResultList());
+
+			List<Order> orders = RestsUtils.doPost("listAllOrders", null , List.class, HttpURLConnection.HTTP_OK);
+
+			mainApp.setOrdersData(orders);
 			orderTable.setItems(mainApp.getOrdersData());
 		} catch (Exception e) {
 			AlertUtil.alert("Could not complete the operation", "Something is wrong!", "Try again or restart the application");

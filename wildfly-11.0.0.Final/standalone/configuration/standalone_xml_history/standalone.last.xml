@@ -513,7 +513,7 @@
             <content sha1="665d0e91583258aa3e06a64a19b1a17e5d3b3f56"/>
         </deployment>
         <deployment name="RESTfulWS.war" runtime-name="RESTfulWS.war">
-            <content sha1="dd7ba0b846bf6ddb1d53228b51280a7ac8821686"/>
+            <content sha1="d32fec835902cae196255d1c81ee2f61a7465cb4"/>
         </deployment>
     </deployments>
 </server>
