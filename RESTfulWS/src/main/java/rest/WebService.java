@@ -1,11 +1,9 @@
 package rest;
 
 import javax.ejb.EJB;
-import javax.ejb.PostActivate;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
-import javax.print.attribute.standard.Media;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -16,18 +14,10 @@ import pt.uc.dei.as.loggerbeans.IEPELogger;
 import com.google.gson.Gson;
 import data.*;
 import entity.*;
-import java.util.List;
 
 @Path("/1.0")
 public class WebService {
-    // TODO: Implementar o web service GET && POST (Login + Orders)
-    //
-    // LOGIN:
-    // Desserializar os dados Login fazer a query à DB
-    //
-    // ORDERS:
-    // Averiguar de que order se trata e fazer o devido Log
-
+    
     private EntityManager em;
 
     @EJB
@@ -87,43 +77,23 @@ public class WebService {
     }
 
     @POST
-    @Path("listAllOrders")
-    public Response listAllOrders(){
+    @Path("newOrder")
+    @Consumes("application/json")
+    public Response newOrder(Order newOrder){
         
-        TypedQuery<Order> query = em.createNamedQuery("Order.findAll", Order.class);
+        remoteEPELogger.orderInfo(newOrder.getEmploye().getEmployers_Name(), newOrder.getIdOrders());
 
-        Gson gson = new Gson();
-        String json  = gson.toJson(query);
-
-        return Response.ok(json, MediaType.APPLICATION_JSON).build();
+        return Response.ok().build();
 
     }
 
     @POST
-    @Path("newOrder")
+    @Path("orderShipped")
     @Consumes("application/json")
-    public void newOrder(Order newOrder){
-        System.out.println("Begin new order..." + newOrder.getClient().toString());
-        System.out.println("Employee:" + newOrder.getEmploye().toString());
-
-
-        newOrder.getEmploye().addOrder(newOrder);
+    public Response orderShipped(Order order){
+        remoteEPELogger.shippingInfo(order.getIdOrders(), ((Byte) order.getOrders_Shipped()).intValue());
         
-        em.getTransaction().begin();
-        em.persist(newOrder.getClient());
-        em.persist(newOrder);
-
-
-        for (Item i : newOrder.getItems()) {
-            i.setOrder(newOrder);
-            i.getId().setOrders_idOrders(newOrder.getIdOrders());
-            i.getProduct().setProducts_Stock(i.getProduct().getProducts_Stock() + i.getQuantityVariation());
-        }
-
-
-        em.merge(newOrder);
-        em.getTransaction().commit();
-
+        return Response.ok().build();
     }
 
     

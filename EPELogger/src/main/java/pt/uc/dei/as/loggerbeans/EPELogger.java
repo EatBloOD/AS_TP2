@@ -24,7 +24,7 @@ public class EPELogger implements IEPELogger, Serializable {
 
 
 	@Override
-	public void shippingInfo(int idOrder, String shippingState) {
+	public void shippingInfo(int idOrder, int shippingState) {
 		
 	}
 
