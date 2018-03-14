@@ -9,6 +9,7 @@ package pt.uc.dei.as.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
+import com.google.gson.annotations.Expose;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -25,21 +26,26 @@ import java.math.BigDecimal;
 public class Item implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Expose
 	@EmbeddedId
 	private ItemPK id;
 
+	@Expose
 	@Column(nullable = false, length = 45)
 	private int items_Quantity;
 
+	@Expose
 	@Column(nullable = false, precision = 10)
 	private BigDecimal items_Unit_Price;
 
 	// bi-directional many-to-one association to Order
+	@Expose
 	@ManyToOne
 	@JoinColumn(name = "Orders_idOrders", nullable = false, insertable = false, updatable = false)
 	private Order order;
 
 	// bi-directional many-to-one association to Product
+	@Expose
 	@ManyToOne
 	@JoinColumn(name = "Products_idProducts", nullable = false, insertable = false, updatable = false)
 	private Product product;

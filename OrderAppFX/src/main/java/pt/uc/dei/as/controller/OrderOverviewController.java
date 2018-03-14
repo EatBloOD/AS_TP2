@@ -6,10 +6,14 @@
  */
 package pt.uc.dei.as.controller;
 
+import com.google.gson.Gson;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.TypedQuery;
+
+import pt.uc.dei.as.RestsUtils;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -199,6 +203,9 @@ public class OrderOverviewController {
 
 				MainApp.em.merge(newOrder);
 				MainApp.em.getTransaction().commit();
+
+				RestsUtils.doPost("newOrder", newOrder, Order.class, HttpURLConnection.HTTP_OK);
+
 			} catch (Exception e) {
 				AlertUtil.alert("Could not complete the operation", "Something is wrong!", "Try again or restart the application");
 				handleRefresh();
@@ -274,6 +281,8 @@ public class OrderOverviewController {
 				MainApp.em.getTransaction().begin();
 				MainApp.em.merge(o);
 				MainApp.em.getTransaction().commit();
+
+				RestsUtils.doPost("orderShipped", o, Order.class, HttpURLConnection.HTTP_OK);
 			} catch (Exception e) {
 				AlertUtil.alert("Could not complete the operation", "Something is wrong!", "Try again or restart the application");
 				handleRefresh();
@@ -330,6 +339,7 @@ public class OrderOverviewController {
 	private void handleRefresh() {
 		try {
 			MainApp.refreshEm();
+
 			TypedQuery<Order> query = MainApp.em.createNamedQuery("Order.findAll", Order.class);
 			mainApp.setOrdersData(query.getResultList());
 			orderTable.setItems(mainApp.getOrdersData());
@@ -339,6 +349,8 @@ public class OrderOverviewController {
 		}
 		orderTable.refresh();
 		return;
+	
+	
 	}
 
 }

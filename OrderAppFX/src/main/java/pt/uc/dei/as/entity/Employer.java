@@ -7,12 +7,19 @@
 package pt.uc.dei.as.entity;
 
 import java.io.Serializable;
-import javax.persistence.*;
-
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.google.gson.annotations.Expose;
 
 /**
  * The persistent class for the Clients database table.
@@ -25,27 +32,34 @@ import java.util.List;
 public class Employer implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    @Expose
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false)
     private int idEmployers;
 
+    @Expose
     @Column(nullable = false, length = 250)
     private String employers_Location;
 
+    @Expose
     @Column(nullable = false, length = 100)
     private String employers_Email;
 
+    @Expose
     @Column(nullable = false, length = 45)
     private String employers_Name;
 
+    @Expose
     @Column(nullable = false, length = 15)
     private String employers_Telephone;
 
+    @Expose
     @Column(nullable = false, length = 100)
     private String employers_Password;
 
     // bi-directional many-to-one association to Order
+    @Expose
     @OneToMany(mappedBy = "employe")
     private List<Order> orders;
 

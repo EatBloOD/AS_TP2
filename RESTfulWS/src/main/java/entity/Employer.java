@@ -6,14 +6,23 @@
  */
 package entity;
 
-import com.google.gson.annotations.Expose;
-
-import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.google.gson.annotations.Expose;
 
 /**
- * The persistent class for the Clients database table.
+ * The persistent class for the Employer database table.
  */
 @Entity
 @Table(name = "Employers")
@@ -48,8 +57,8 @@ public class Employer implements Serializable {
     @Column(nullable = false, length = 100)
     private String employers_Password;
 
-    @Expose
     // bi-directional many-to-one association to Order
+    @Expose
     @OneToMany(mappedBy = "employe")
     private List<Order> orders;
 
@@ -120,17 +129,15 @@ public class Employer implements Serializable {
         this.employers_Telephone = employers_Telephone;
     }
 
-    /*
     public List<Order> getOrders() {
-         return this.orders;
-     }
+        return this.orders;
+    }
 
-     public void setOrders(List<Order> orders) {
-         this.orders = orders;
-     }
-    */
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
-    /*public Order addOrder(Order order) {
+    public Order addOrder(Order order) {
         getOrders().add(order);
         //order.setClient(this);
 
@@ -142,19 +149,7 @@ public class Employer implements Serializable {
         order.setClient(null);
 
         return order;
-    }*//*public Order addOrder(Order order) {
-        getOrders().add(order);
-        //order.setClient(this);
-
-        return order;
     }
-
-    public Order removeOrder(Order order) {
-        getOrders().remove(order);
-        order.setClient(null);
-
-        return order;
-    }*/
 
     public String getEmployers_Password() {
         return employers_Password;

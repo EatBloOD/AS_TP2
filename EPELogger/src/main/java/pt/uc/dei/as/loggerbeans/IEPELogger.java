@@ -10,6 +10,6 @@ public interface IEPELogger {
 
     void orderInfo(String employer, int idOrder);
 
-    void shippingInfo(int idOrder, String shippingState);
+    void shippingInfo(int idOrder, int shippingState);
 
 }

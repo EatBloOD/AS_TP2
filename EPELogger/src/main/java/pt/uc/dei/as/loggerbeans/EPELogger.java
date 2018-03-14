@@ -66,12 +66,12 @@ public class EPELogger implements IEPELogger, Serializable {
     }
 
     @Override
-    public void shippingInfo(int idOrder, String shippingState) {
+    public void shippingInfo(int idOrder, int shippingState) {
         FileWriter out = openFileWriter(SHIPPING_RECORD_FILE);
         if (out != null) {
             try {
                 out.write(String.format(SHIPPING_FILE_FORMAT,
-                        sdf.format(date.getTime()), idOrder, shippingState));
+                        sdf.format(date.getTime()), idOrder, shippingState == 0 ? "NOT_SHIPPED" : "SHIPPED"));
                 out.flush();
                 out.close();
             } catch (IOException e) {

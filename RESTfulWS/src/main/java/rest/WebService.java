@@ -1,7 +1,6 @@
 package rest;
 
 import javax.ejb.EJB;
-import javax.ejb.PostActivate;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
@@ -15,17 +14,9 @@ import pt.uc.dei.as.loggerbeans.IEPELogger;
 import com.google.gson.Gson;
 import data.*;
 import entity.*;
-import java.util.List;
 
 @Path("/1.0")
 public class WebService {
-    // TODO: Implementar o web service GET && POST (Login + Orders)
-    //
-    // LOGIN:
-    // Desserializar os dados Login fazer a query à DB
-    //
-    // ORDERS:
-    // Averiguar de que order se trata e fazer o devido Log
 
     private EntityManager em;
 
@@ -95,18 +86,40 @@ public class WebService {
         try {
             e = queryC.getSingleResult();
 
-                Gson gson = new Gson();
+            Gson gson = new Gson();
 
-                String json = gson.toJson(e);
+            String json = gson.toJson(e);
 
-                remoteEPELogger.loginInfo(e.getEmployers_Name(), 1);
+            remoteEPELogger.loginInfo(e.getEmployers_Name(), 1);
 
-                return Response.ok(json, MediaType.APPLICATION_JSON).build();
+            return Response.ok(json, MediaType.APPLICATION_JSON).build();
 
         } catch (NoResultException nre) {
 
             return Response.status(404).build();
         }
     }
+
+    @POST
+    @Path("newOrder")
+    @Consumes("application/json")
+    public Response newOrder(Order newOrder){
+
+        remoteEPELogger.orderInfo(newOrder.getEmploye().getEmployers_Name(), newOrder.getIdOrders());
+
+        return Response.ok().build();
+
+    }
+
+    @POST
+    @Path("orderShipped")
+    @Consumes("application/json")
+    public Response orderShipped(Order order){
+        remoteEPELogger.shippingInfo(order.getIdOrders(), ((Byte) order.getOrders_Shipped()).intValue());
+
+        return Response.ok().build();
+    }
+
+
 
 }

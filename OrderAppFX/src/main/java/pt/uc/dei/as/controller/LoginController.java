@@ -81,6 +81,8 @@ public class LoginController {
             
             Employer e = RestsUtils.doPost("login", login , Employer.class, HttpURLConnection.HTTP_OK);
 
+            System.out.println("Employer: " + e.toString());
+
             if (e != null){
 
                 JOptionPane.showMessageDialog(JOptionPane.getRootFrame(),"Login efectuado com sucesso!");

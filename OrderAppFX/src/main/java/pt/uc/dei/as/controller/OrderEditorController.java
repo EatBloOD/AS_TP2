@@ -370,9 +370,11 @@ public class OrderEditorController {
 	 */
 	private void handleNameFiedlChanged() {
 		try {
+
 			TypedQuery<Client> queryC = MainApp.em.createNamedQuery("Client.findClient", Client.class);
 			Client c;
 			queryC.setParameter("clients_name", nameField.getText());
+
 			try {
 				c = queryC.getSingleResult();
 				telephoneField.setText(c.getClients_Telephone());
